@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>414178999756-hqvrhaoc6rv1an9r0scuc7b1muqsh8mq.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.414178999756-hqvrhaoc6rv1an9r0scuc7b1muqsh8mq</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDpAGi13kWVxTJKDR-8ZEHHWU6EGMgLHoQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>414178999756</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>thanhnguyen.alvingro</string>
+	<key>PROJECT_ID</key>
+	<string>alvingro-1</string>
+	<key>STORAGE_BUCKET</key>
+	<string>alvingro-1.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:414178999756:ios:e78ff8d6a9ba1fcccd3169</string>
+</dict>
+</plist>
