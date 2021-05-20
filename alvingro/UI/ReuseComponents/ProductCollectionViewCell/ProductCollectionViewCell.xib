@@ -24,19 +24,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="174" height="278"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="67O-NT-6Er">
-                                <rect key="frame" x="15" y="25" width="144" height="115"/>
+                                <rect key="frame" x="15" y="25" width="144" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="67O-NT-6Er" secondAttribute="height" multiplier="5:4" id="o8j-58-7tu"/>
+                                    <constraint firstAttribute="height" constant="80" id="rtF-Fe-t3c"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mq2-LQ-8Wc">
-                                <rect key="frame" x="15" y="165" width="144" height="20"/>
+                                <rect key="frame" x="15" y="130" width="144" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f26-iT-SJE">
-                                <rect key="frame" x="15" y="190" width="26.5" height="17"/>
+                                <rect key="frame" x="15" y="155" width="26.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <nil key="highlightedColor"/>

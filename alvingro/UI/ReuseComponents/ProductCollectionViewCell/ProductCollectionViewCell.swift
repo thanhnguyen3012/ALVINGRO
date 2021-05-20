@@ -20,7 +20,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         
         self.contentView.layer.cornerRadius = 18
         self.contentView.layer.borderWidth = 1
-        self.contentView.layer.borderColor = UIColor.systemGray.cgColor
+        self.contentView.layer.borderColor = UIColor(white: 0.8, alpha: 1).cgColor
         
         addButton.layer.cornerRadius = 17
     }

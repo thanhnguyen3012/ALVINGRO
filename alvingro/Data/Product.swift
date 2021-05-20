@@ -19,4 +19,18 @@ class Product: Codable {
     var rate: Float?
     var categories: [String]?
     var brand: String?
+    
+    init(id: String?, photos: [String]?, name: String?, amount: Int?, price: Float?, unit: String?, details: String?, nutrition: [String]?, rate: Float?, categories: [String]?, brand: String?) {
+        self.id = id
+        self.photos = photos
+        self.name = name
+        self.amount = amount
+        self.price = price
+        self.unit = unit
+        self.details = details
+        self.nutrition = nutrition
+        self.rate = rate
+        self.categories = categories
+        self.brand = brand
+    }
 }

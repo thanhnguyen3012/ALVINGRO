@@ -11,7 +11,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        title = "TestView"
         view.backgroundColor = UIColor(named: "MainGreen")
     }
     
