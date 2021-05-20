@@ -14,5 +14,12 @@ class ViewController: UIViewController {
         
         view.backgroundColor = UIColor(named: "MainGreen")
     }
+    
+    @available(iOS 13.0, *)
+    @IBAction func auth(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Auth", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: SignInViewController.identifier) as SignInViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
