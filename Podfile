@@ -7,6 +7,7 @@ target 'alvingro' do
 
   # Pods for alvingro
   pod 'Alamofire', '~> 5.2'
+  pod 'Kingfisher', '~> 6.0'
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'

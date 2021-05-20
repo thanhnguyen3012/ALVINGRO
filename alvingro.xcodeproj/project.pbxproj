@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		294BF82472F6D29E08BC40CA /* Pods_alvingro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA16476DF2D2349E7664532C /* Pods_alvingro.framework */; };
+		8445B0F02655FD6700044F11 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8445B0EE2655FD6700044F11 /* ProductCollectionViewCell.swift */; };
+		8445B0F12655FD6700044F11 /* ProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8445B0EF2655FD6700044F11 /* ProductCollectionViewCell.xib */; };
+		8445B0F3265602E600044F11 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8445B0F2265602E600044F11 /* Product.swift */; };
+		8445B0F52656043E00044F11 /* UIImageView+getImageFromURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8445B0F42656043E00044F11 /* UIImageView+getImageFromURL.swift */; };
 		84930E8626521EFF00CFBD77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84930E8526521EFF00CFBD77 /* AppDelegate.swift */; };
 		84930E8826521EFF00CFBD77 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84930E8726521EFF00CFBD77 /* SceneDelegate.swift */; };
 		84930E8A26521EFF00CFBD77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84930E8926521EFF00CFBD77 /* ViewController.swift */; };
@@ -31,6 +35,10 @@
 /* Begin PBXFileReference section */
 		077E12E08045614AB0EAEAC8 /* Pods-alvingro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alvingro.release.xcconfig"; path = "Target Support Files/Pods-alvingro/Pods-alvingro.release.xcconfig"; sourceTree = "<group>"; };
 		3C79213ED5EF9B86E8DFAA24 /* Pods-alvingro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alvingro.debug.xcconfig"; path = "Target Support Files/Pods-alvingro/Pods-alvingro.debug.xcconfig"; sourceTree = "<group>"; };
+		8445B0EE2655FD6700044F11 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		8445B0EF2655FD6700044F11 /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
+		8445B0F2265602E600044F11 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		8445B0F42656043E00044F11 /* UIImageView+getImageFromURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+getImageFromURL.swift"; sourceTree = "<group>"; };
 		84930E8226521EFF00CFBD77 /* alvingro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = alvingro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84930E8526521EFF00CFBD77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84930E8726521EFF00CFBD77 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +82,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8445B0EC2655FD2900044F11 /* ReuseComponents */ = {
+			isa = PBXGroup;
+			children = (
+				8445B0ED2655FD3D00044F11 /* ProductCollectionViewCell */,
+			);
+			path = ReuseComponents;
+			sourceTree = "<group>";
+		};
+		8445B0ED2655FD3D00044F11 /* ProductCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				8445B0EE2655FD6700044F11 /* ProductCollectionViewCell.swift */,
+				8445B0EF2655FD6700044F11 /* ProductCollectionViewCell.xib */,
+			);
+			path = ProductCollectionViewCell;
+			sourceTree = "<group>";
+		};
 		84930E7926521EFE00CFBD77 = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +139,7 @@
 		84930E992652202E00CFBD77 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				8445B0EC2655FD2900044F11 /* ReuseComponents */,
 				84930EA926525FCC00CFBD77 /* SignUp */,
 				84930E9F26524F2900CFBD77 /* SignIn */,
 			);
@@ -123,6 +149,7 @@
 		84930E9A2652203200CFBD77 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				8445B0F2265602E600044F11 /* Product.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -133,6 +160,7 @@
 				84930EA426525C8700CFBD77 /* NSObject+identifier.swift */,
 				84930EAE2652686800CFBD77 /* UITextField+underlined.swift */,
 				84930EB026526BBB00CFBD77 /* UIButton+mainButton.swift */,
+				8445B0F42656043E00044F11 /* UIImageView+getImageFromURL.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -252,6 +280,7 @@
 			files = (
 				84930E9226521F0000CFBD77 /* LaunchScreen.storyboard in Resources */,
 				84930E9E26524DEB00CFBD77 /* GoogleService-Info.plist in Resources */,
+				8445B0F12655FD6700044F11 /* ProductCollectionViewCell.xib in Resources */,
 				84930E8F26521F0000CFBD77 /* Assets.xcassets in Resources */,
 				84930E8D26521EFF00CFBD77 /* Main.storyboard in Resources */,
 				84930EA32652598E00CFBD77 /* Auth.storyboard in Resources */,
@@ -309,9 +338,12 @@
 			files = (
 				84D929E22655F35D00805092 /* APIManager.swift in Sources */,
 				84930EA126524F4300CFBD77 /* SignInViewController.swift in Sources */,
+				8445B0F3265602E600044F11 /* Product.swift in Sources */,
+				8445B0F02655FD6700044F11 /* ProductCollectionViewCell.swift in Sources */,
 				84930EAB26525FF600CFBD77 /* SignUpViewController.swift in Sources */,
 				84930EAD2652600100CFBD77 /* SignUpViewModel.swift in Sources */,
 				84930EA526525C8700CFBD77 /* NSObject+identifier.swift in Sources */,
+				8445B0F52656043E00044F11 /* UIImageView+getImageFromURL.swift in Sources */,
 				84930EB126526BBB00CFBD77 /* UIButton+mainButton.swift in Sources */,
 				84930EA826525FC500CFBD77 /* SignInViewModel.swift in Sources */,
 				84D929E42655F3B000805092 /* ResponseError.swift in Sources */,
