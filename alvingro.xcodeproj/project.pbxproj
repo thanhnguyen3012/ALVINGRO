@@ -40,6 +40,7 @@
 		84930EAD2652600100CFBD77 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84930EAC2652600100CFBD77 /* SignUpViewModel.swift */; };
 		84930EAF2652686800CFBD77 /* UITextField+underlined.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84930EAE2652686800CFBD77 /* UITextField+underlined.swift */; };
 		84930EB126526BBB00CFBD77 /* UIButton+mainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84930EB026526BBB00CFBD77 /* UIButton+mainButton.swift */; };
+		84A0FC012657B7B900880769 /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0FC002657B7B900880769 /* Brand.swift */; };
 		84D929E02655F23400805092 /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D929DF2655F23400805092 /* TargetType.swift */; };
 		84D929E22655F35D00805092 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D929E12655F35D00805092 /* APIManager.swift */; };
 		84D929E42655F3B000805092 /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D929E32655F3AF00805092 /* ResponseError.swift */; };
@@ -82,6 +83,7 @@
 		84930EAC2652600100CFBD77 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		84930EAE2652686800CFBD77 /* UITextField+underlined.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+underlined.swift"; sourceTree = "<group>"; };
 		84930EB026526BBB00CFBD77 /* UIButton+mainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+mainButton.swift"; sourceTree = "<group>"; };
+		84A0FC002657B7B900880769 /* Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
 		84D929DF2655F23400805092 /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
 		84D929E12655F35D00805092 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		84D929E32655F3AF00805092 /* ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				8445B0F2265602E600044F11 /* Product.swift */,
 				8445B11E26563E7400044F11 /* Voucher.swift */,
 				8445B12026563F9200044F11 /* Category.swift */,
+				84A0FC002657B7B900880769 /* Brand.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				84930E8626521EFF00CFBD77 /* AppDelegate.swift in Sources */,
 				8445B10726560FF700044F11 /* ExploreViewController.swift in Sources */,
 				84930E8826521EFF00CFBD77 /* SceneDelegate.swift in Sources */,
+				84A0FC012657B7B900880769 /* Brand.swift in Sources */,
 				84D929E02655F23400805092 /* TargetType.swift in Sources */,
 				84930EAF2652686800CFBD77 /* UITextField+underlined.swift in Sources */,
 			);

@@ -18,9 +18,13 @@ class SignUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupView()
     }
     
     func setupView() {
+        
+        navigationController?.setNavigationBarHidden(false, animated: true)
         emailTextField.underlined()
         
         passwordTextField.underlined()

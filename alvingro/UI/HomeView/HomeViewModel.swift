@@ -30,7 +30,8 @@ class HomeViewModel {
                             Product(id: "pr2", photos: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZpkiRbYuYU_NGmV70jMacxknQEKgK24iuMw&usqp=CAU"], name: "Stawberry", amount: 3, price: 5.43, unit: "1 kg", details: "no describing", nutrition: ["vitamin Z"], rate: 2.0, categories: ["cat2"], brand: "unknown")]
     var groceriseList = [
                             Product(id: "pr1", photos: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZpkiRbYuYU_NGmV70jMacxknQEKgK24iuMw&usqp=CAU"], name: "Apple", amount: 2, price: 2.34, unit: "1kg", details: "describing about apple", nutrition: ["a", "cbv"], rate: 4.5, categories: ["cat1"], brand: "nobrand"),
-                            Product(id: "pr2", photos: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZpkiRbYuYU_NGmV70jMacxknQEKgK24iuMw&usqp=CAU"], name: "Stawberry", amount: 3, price: 5.43, unit: "1 kg", details: "no describing", nutrition: ["vitamin Z"], rate: 2.0, categories: ["cat2"], brand: "unknown")]
+                            Product(id: "pr2", photos: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZpkiRbYuYU_NGmV70jMacxknQEKgK24iuMw&usqp=CAU"], name: "Stawberry", amount: 3, price: 5.43, unit: "1 kg", details: "no describing", nutrition: ["vitamin Z"], rate: 2.0, categories: ["cat2"], brand: "unknown"),
+    Product(id: "dfv", photos: ["https://firebasestorage.googleapis.com/v0/b/alvingro-1.appspot.com/o/images%2Falmond.png?alt=media&token=06f18d11-a40e-4e38-9a1d-aefb1cf26dc6"], name: "AAAA", amount: 34, price: 12, unit: "kg", details: nil, nutrition: nil, rate: 3, categories: nil, brand: nil)]
     var categoriesList = [Category(id: "cat1", name: "Fruit", photo: "https://toppng.com/uploads/preview/fruits-11549675139aaf5iezif5.png"),
                           Category(id: "cat2", name: "Bevarage", photo: "https://toppng.com/uploads/preview/fruits-11549675139aaf5iezif5.png")]
     var vouchersList = [

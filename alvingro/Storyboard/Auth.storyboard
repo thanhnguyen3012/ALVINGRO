@@ -166,6 +166,7 @@
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="jYh-XM-p6N" id="xyk-0L-3Db"/>
+                        <outlet property="loginButton" destination="ovY-xt-EEc" id="ddb-qc-eYv"/>
                         <outlet property="passwordTextField" destination="6u8-nR-ZJx" id="cEf-eJ-3dW"/>
                     </connections>
                 </viewController>

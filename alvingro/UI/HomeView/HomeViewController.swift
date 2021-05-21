@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class HomeViewController: UIViewController {
 
@@ -14,6 +15,11 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var bestSellingCollectionView: UICollectionView!
     @IBOutlet weak var categoriesCollectionView: UICollectionView!
     @IBOutlet weak var groceriesCollectionView: UICollectionView!
+    @IBOutlet weak var contentScrollView: UIScrollView!
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak var locationButton: UIButton!
+    @IBOutlet weak var headerView: UIView!
     
     lazy var viewModel = HomeViewModel(delegate: self)
     
@@ -24,7 +30,7 @@ class HomeViewController: UIViewController {
     }
     
     func setupView() {
-        
+
         voucherCollectionView.delegate = self
         voucherCollectionView.dataSource = self
         voucherCollectionView.register(VoucherCollectionViewCell.nib, forCellWithReuseIdentifier: VoucherCollectionViewCell.identifier)
@@ -45,26 +51,9 @@ class HomeViewController: UIViewController {
         groceriesCollectionView.dataSource = self
         groceriesCollectionView.register(ProductCollectionViewCell.nib, forCellWithReuseIdentifier: ProductCollectionViewCell.identifier)
         
-        /// Components of navigationBar
-        let logoApp = UIImageView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
-        logoApp.image = UIImage(named: "Logo2")
+        navigationController?.setNavigationBarHidden(true, animated: false)
         
-        let positionButton = UIButton(frame: CGRect(x: 0, y: 0, width: (self.view.frame.width - 20), height: 21))
-        positionButton.titleLabel?.text = viewModel.getCurrentPosition()
-        positionButton.setTitleColor(.darkGray, for: .normal)
-        positionButton.setImage(UIImage(named: "Exclude"), for: .normal)
-        
-        let searchBar = UISearchBar(frame: CGRect(x: 20, y: 0, width: (self.view.frame.width - 40), height: 52))
-        searchBar.layer.cornerRadius = 15
-        searchBar.image(for: .search, state: .normal)
-        searchBar.placeholder = "Search Store"
-        
-        let stackHeader = UIStackView(arrangedSubviews: [logoApp, positionButton, searchBar])
-        stackHeader.distribution = .equalCentering
-        stackHeader.axis = .vertical
-        stackHeader.alignment = .center
-        
-        self.tabBarController?.navigationItem.titleView = searchBar
+        contentScrollView.delegate = self
     }
     
     
@@ -129,6 +118,18 @@ extension HomeViewController: UICollectionViewDelegate {
     
 }
 
+extension HomeViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        let offset = scrollView.contentOffset.y
+        
+        // 40 is default height of logoImageView
+        if (40 - offset >= 0) {
+            logoImageView.heightAnchor.constraint(equalToConstant: (40 - offset)).isActive = true
+        }
+    }
+}
+
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         var size = CGSize(width: 0, height: collectionView.frame.height)
@@ -138,7 +139,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
             break
         case categoriesCollectionView:
             size.width = 248
-        default:
+        default: // return width of ProductCollectionViewCell
             size.width = 173
         }
         return size

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Firebase
 
 class Voucher: Codable{
     var id: String?
@@ -34,5 +35,15 @@ class Voucher: Codable{
         self.exp = exp
         self.amount = amount
         self.photo = photo
+    }
+    
+    init(snapshot: QueryDocumentSnapshot) {
+        self.id = snapshot.documentID
+        self.discount = snapshot.get("discount") as? Float
+        self.allow = snapshot.get("allow") as? [String]
+        self.startDate = snapshot.get("start_date") as? Date
+        self.exp = snapshot.get("exp") as? Date
+        self.amount = snapshot.get("amount") as? Int
+        self.photo = snapshot.get("photo") as? String
     }
 }

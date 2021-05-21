@@ -1,27 +1,29 @@
 //
-//  Category.swift
+//  Brand.swift
 //  alvingro
 //
-//  Created by Thành Nguyên on 20/05/2021.
+//  Created by Thành Nguyên on 21/05/2021.
 //
 
 import Foundation
 import Firebase
 
-class Category: Codable {
+class Brand: Codable {
     var id: String?
     var name: String?
-    var photo: String?
     
-    init(id: String?, name: String?, photo: String?) {
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+    }
+    
+    init(id: String, name: String?) {
         self.id = id
         self.name = name
-        self.photo = photo
     }
     
     init(snapshot: QueryDocumentSnapshot) {
         self.id = snapshot.documentID
         self.name = snapshot.get("name") as? String
-        self.photo = snapshot.get("photo") as? String
     }
 }
