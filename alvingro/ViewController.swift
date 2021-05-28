@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import CoreData
 
 class ViewController: UIViewController {
 
@@ -17,6 +18,15 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         title = "TestView"
         navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        //Test core data
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Products", in: context)
+        let newProduct = NSManagedObject(entity: entity!, insertInto: context)
+        
+        //Add mock data
+        newProduct.setValuesForKeys(Product(id: nil, photos: [], name: "Apple", amount: 50, price: 30.4, unit: "kilogram", details: nil, nutrition: ["vitamin A", "vitamin C"], rate: 4.3, categories: ["C001"], brand: "B000"))
     }
     
     @available(iOS 13.0, *)
@@ -69,9 +79,5 @@ class ViewController: UIViewController {
           }
         }
             
-    }
-    
-    func createDatabase() {
-        
     }
 }

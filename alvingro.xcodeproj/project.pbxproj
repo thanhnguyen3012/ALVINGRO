@@ -44,6 +44,8 @@
 		84D929E02655F23400805092 /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D929DF2655F23400805092 /* TargetType.swift */; };
 		84D929E22655F35D00805092 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D929E12655F35D00805092 /* APIManager.swift */; };
 		84D929E42655F3B000805092 /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D929E32655F3AF00805092 /* ResponseError.swift */; };
+		84F7D167265F8204001AC03A /* Product.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84F7D165265F8204001AC03A /* Product.xcdatamodeld */; };
+		84F7D18D265F83BB001AC03A /* alvingro.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84F7D18B265F83BB001AC03A /* alvingro.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +89,8 @@
 		84D929DF2655F23400805092 /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
 		84D929E12655F35D00805092 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		84D929E32655F3AF00805092 /* ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
+		84F7D166265F8204001AC03A /* Product.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Product.xcdatamodel; sourceTree = "<group>"; };
+		84F7D18C265F83BB001AC03A /* alvingro.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = alvingro.xcdatamodel; sourceTree = "<group>"; };
 		FA16476DF2D2349E7664532C /* Pods_alvingro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_alvingro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -229,6 +233,7 @@
 				84930E9026521F0000CFBD77 /* LaunchScreen.storyboard */,
 				84930E9D26524DEB00CFBD77 /* GoogleService-Info.plist */,
 				84930E9326521F0000CFBD77 /* Info.plist */,
+				84F7D18B265F83BB001AC03A /* alvingro.xcdatamodeld */,
 			);
 			path = alvingro;
 			sourceTree = "<group>";
@@ -255,6 +260,7 @@
 				8445B11E26563E7400044F11 /* Voucher.swift */,
 				8445B12026563F9200044F11 /* Category.swift */,
 				84A0FC002657B7B900880769 /* Brand.swift */,
+				84F7D165265F8204001AC03A /* Product.xcdatamodeld */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -461,6 +467,7 @@
 				8445B11F26563E7400044F11 /* Voucher.swift in Sources */,
 				8445B11C265624D800044F11 /* HomeCategoryCollectionViewCell.swift in Sources */,
 				84930EB126526BBB00CFBD77 /* UIButton+mainButton.swift in Sources */,
+				84F7D18D265F83BB001AC03A /* alvingro.xcdatamodeld in Sources */,
 				84930EA826525FC500CFBD77 /* SignInViewModel.swift in Sources */,
 				8445B12126563F9200044F11 /* Category.swift in Sources */,
 				84D929E42655F3B000805092 /* ResponseError.swift in Sources */,
@@ -472,6 +479,7 @@
 				84A0FC012657B7B900880769 /* Brand.swift in Sources */,
 				84D929E02655F23400805092 /* TargetType.swift in Sources */,
 				84930EAF2652686800CFBD77 /* UITextField+underlined.swift in Sources */,
+				84F7D167265F8204001AC03A /* Product.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -677,6 +685,29 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		84F7D165265F8204001AC03A /* Product.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				84F7D166265F8204001AC03A /* Product.xcdatamodel */,
+			);
+			currentVersion = 84F7D166265F8204001AC03A /* Product.xcdatamodel */;
+			path = Product.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		84F7D18B265F83BB001AC03A /* alvingro.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				84F7D18C265F83BB001AC03A /* alvingro.xcdatamodel */,
+			);
+			currentVersion = 84F7D18C265F83BB001AC03A /* alvingro.xcdatamodel */;
+			path = alvingro.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 84930E7A26521EFE00CFBD77 /* Project object */;
 }
