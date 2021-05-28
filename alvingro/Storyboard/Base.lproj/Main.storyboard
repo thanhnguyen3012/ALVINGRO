@@ -765,17 +765,45 @@
             </objects>
             <point key="canvasLocation" x="2404" y="-326"/>
         </scene>
-        <!--Favorite-->
+        <!--Favourite-->
         <scene sceneID="ZO8-aI-C5f">
             <objects>
-                <viewController id="46G-jP-abI" customClass="FavoriteViewController" customModule="alvingro" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="46G-jP-abI" customClass="FavouriteViewController" customModule="alvingro" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uWj-q1-ekO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Btp-rg-fe6">
+                                <rect key="frame" x="0.0" y="88" width="414" height="628"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="553-Eg-eFW">
+                                <rect key="frame" x="25" y="721" width="364" height="67"/>
+                                <color key="backgroundColor" name="MainGreen"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="67" id="zYw-Pm-vG8"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Add All To Cart"/>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="nwO-qH-dcg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="553-Eg-eFW" firstAttribute="leading" secondItem="nwO-qH-dcg" secondAttribute="leading" constant="25" id="0ED-Mu-r1t"/>
+                            <constraint firstItem="Btp-rg-fe6" firstAttribute="leading" secondItem="nwO-qH-dcg" secondAttribute="leading" id="LGq-Kn-r0o"/>
+                            <constraint firstItem="nwO-qH-dcg" firstAttribute="trailing" secondItem="Btp-rg-fe6" secondAttribute="trailing" id="NbX-th-o8A"/>
+                            <constraint firstItem="nwO-qH-dcg" firstAttribute="trailing" secondItem="553-Eg-eFW" secondAttribute="trailing" constant="25" id="Q4P-38-gJT"/>
+                            <constraint firstItem="553-Eg-eFW" firstAttribute="top" secondItem="Btp-rg-fe6" secondAttribute="bottom" constant="5" id="Scq-KH-bau"/>
+                            <constraint firstItem="nwO-qH-dcg" firstAttribute="bottom" secondItem="553-Eg-eFW" secondAttribute="bottom" constant="25" id="iJ6-g4-pUh"/>
+                            <constraint firstItem="Btp-rg-fe6" firstAttribute="top" secondItem="nwO-qH-dcg" secondAttribute="top" id="imb-Ly-m8R"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favorite" image="Favorite" selectedImage="Favorite-highlighted" id="pih-Vl-ePb"/>
+                    <tabBarItem key="tabBarItem" title="Favourite" image="Favorite" selectedImage="Favorite-highlighted" id="pih-Vl-ePb"/>
+                    <connections>
+                        <outlet property="addAllToCartButton" destination="553-Eg-eFW" id="ZDv-LB-8R9"/>
+                        <outlet property="favouriteTableView" destination="Btp-rg-fe6" id="ec7-Ue-zV0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S1k-SQ-JhW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
