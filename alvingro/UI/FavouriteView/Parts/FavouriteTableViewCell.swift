@@ -35,6 +35,7 @@ class FavouriteTableViewCell: UITableViewCell {
                 self.photoImageView.image = UIImage(named: "PlaceholderImage")
             }
         })
+        
         productNameLabel.text = product.name
         unitLabel.text = product.unit
         priceLabel.text = "$\(product.price ?? 0.00)"
