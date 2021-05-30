@@ -2,13 +2,13 @@
 //  FavouriteTableViewCell.swift
 //  alvingro
 //
-//  Created by Thành Nguyên on 30/05/2021.
+//  Created by Thành Nguyên on 28/05/2021.
 //
 
 import UIKit
 
 class FavouriteTableViewCell: UITableViewCell {
-    
+  
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var unitLabel: UILabel!
@@ -16,6 +16,7 @@ class FavouriteTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+      
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -28,7 +29,6 @@ class FavouriteTableViewCell: UITableViewCell {
         unitLabel.text =  nil
         priceLabel.text =  nil
     }
-    
     func bindData(product: Product) {
         photoImageView.getImageFromURL(url: product.photos?[0] ?? "", completionHandler: { img in
             if img == nil {

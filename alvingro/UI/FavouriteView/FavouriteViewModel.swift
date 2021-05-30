@@ -13,11 +13,9 @@ protocol FavouriteViewModelEvents: AnyObject {
 class FavouriteViewModel {
     
     weak var delegate: FavouriteViewModelEvents?
-    
     var productsList = [Product]()
     
     init(delegate: FavouriteViewModelEvents) {
         self.delegate = delegate
     }
-    
 }
