@@ -41,5 +41,9 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension CartViewController: CartViewModelEvents {
+    func updateCart(totalPrice: Float) {
+        <#code#>
+    }
+    
     
 }
