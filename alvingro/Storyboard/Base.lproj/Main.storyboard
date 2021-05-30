@@ -765,7 +765,7 @@
             </objects>
             <point key="canvasLocation" x="2404" y="-326"/>
         </scene>
-        <!--Favourite-->
+        <!--Favorite-->
         <scene sceneID="ZO8-aI-C5f">
             <objects>
                 <viewController id="46G-jP-abI" customClass="FavouriteViewController" customModule="alvingro" customModuleProvider="target" sceneMemberID="viewController">

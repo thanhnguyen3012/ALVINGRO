@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import RealmSwift
 
 class ViewController: UIViewController {
 
@@ -71,7 +72,10 @@ class ViewController: UIViewController {
             
     }
     
-    func createDatabase() {
+    
+    func realmAddData() {
+        guard let realm = try Realm() else { return }
+        
         
     }
 }
