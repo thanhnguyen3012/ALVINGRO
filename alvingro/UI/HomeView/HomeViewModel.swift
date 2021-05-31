@@ -15,31 +15,24 @@ class HomeViewModel {
     
     weak var delegate: HomeViewModelEvents?
     
-//    var highlyRecommendedList = [Product]()
-//    var bestSellingList = [Product]()
-//    var groceriseList = [Product]()
-//    var categoriesList = [Category]()
-//    var vouchersList = [Voucher]()
-    
-    // Mock datas
-    var highlyRecommendedList = [
-                                    Product(id: "pr1", photos: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZpkiRbYuYU_NGmV70jMacxknQEKgK24iuMw&usqp=CAU"], name: "Apple", amount: 2, price: 2.34, unit: "1kg", details: "describing about apple", nutrition: ["a", "cbv"], rate: 4.5, categories: ["cat1"], brand: "nobrand"),
-                                    Product(id: "pr2", photos: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZpkiRbYuYU_NGmV70jMacxknQEKgK24iuMw&usqp=CAU"], name: "Stawberry", amount: 3, price: 5.43, unit: "1 kg", details: "no describing", nutrition: ["vitamin Z"], rate: 2.0, categories: ["cat2"], brand: "unknown")]
-    var bestSellingList = [
-                            Product(id: "pr1", photos: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZpkiRbYuYU_NGmV70jMacxknQEKgK24iuMw&usqp=CAU"], name: "Apple", amount: 2, price: 2.34, unit: "1kg", details: "describing about apple", nutrition: ["a", "cbv"], rate: 4.5, categories: ["cat1"], brand: "nobrand"),
-                            Product(id: "pr2", photos: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZpkiRbYuYU_NGmV70jMacxknQEKgK24iuMw&usqp=CAU"], name: "Stawberry", amount: 3, price: 5.43, unit: "1 kg", details: "no describing", nutrition: ["vitamin Z"], rate: 2.0, categories: ["cat2"], brand: "unknown")]
-    var groceriseList = [
-                            Product(id: "pr1", photos: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZpkiRbYuYU_NGmV70jMacxknQEKgK24iuMw&usqp=CAU"], name: "Apple", amount: 2, price: 2.34, unit: "1kg", details: "describing about apple", nutrition: ["a", "cbv"], rate: 4.5, categories: ["cat1"], brand: "nobrand"),
-                            Product(id: "pr2", photos: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZpkiRbYuYU_NGmV70jMacxknQEKgK24iuMw&usqp=CAU"], name: "Stawberry", amount: 3, price: 5.43, unit: "1 kg", details: "no describing", nutrition: ["vitamin Z"], rate: 2.0, categories: ["cat2"], brand: "unknown"),
-    Product(id: "dfv", photos: ["https://firebasestorage.googleapis.com/v0/b/alvingro-1.appspot.com/o/images%2Falmond.png?alt=media&token=06f18d11-a40e-4e38-9a1d-aefb1cf26dc6"], name: "AAAA", amount: 34, price: 12, unit: "kg", details: nil, nutrition: nil, rate: 3, categories: nil, brand: nil)]
-    var categoriesList = [Category(id: "cat1", name: "Fruit", photo: "https://toppng.com/uploads/preview/fruits-11549675139aaf5iezif5.png"),
-                          Category(id: "cat2", name: "Bevarage", photo: "https://toppng.com/uploads/preview/fruits-11549675139aaf5iezif5.png")]
-    var vouchersList = [
-                        Voucher(id: "vou1", discount: 10, allow: ["pr1", "cat1"], startDate: Date(), exp: Date(), amount: 3, photo: "https://cdn5.vectorstock.com/i/1000x1000/15/49/10-off-sale-discount-banner-discount-offer-price-vector-25621549.jpg"),
-                        Voucher(id: "vou2", discount: 20, allow: ["cat2"], startDate: Date(), exp: Date(), amount: 2, photo: "https://cdn5.vectorstock.com/i/1000x1000/15/49/10-off-sale-discount-banner-discount-offer-price-vector-25621549.jpg")]
+    var highlyRecommendedList = [Product]()
+    var bestSellingList = [Product]()
+    var groceriseList = [Product]()
+    var categoriesList = [Category]()
+    var vouchersList = [Voucher]()
     
     init(delegate: HomeViewModelEvents) {
         self.delegate = delegate
+        getAllProductFromDevice()
+    }
+    
+    func getAllProductFromDevice() {
+        groceriseList = LocalDatabase.shared.getAll(targetType: Product.self)
+        vouchersList = LocalDatabase.shared.getAll(targetType: Voucher.self)
+        categoriesList = LocalDatabase.shared.getAll(targetType: Category.self)
+        loadHighlyRecommendedList()
+        loadBestSellingList()
+        delegate?.loadedProducts()
     }
     
     func getCurrentPosition() -> String {
@@ -51,18 +44,10 @@ class HomeViewModel {
     }
     
     func loadHighlyRecommendedList() {
-        
+        highlyRecommendedList = groceriseList.filter { $0.rate >= 4 }
     }
     
     func loadBestSellingList() {
-        
-    }
-    
-    func loadGroceriesList() {
-        
-    }
-    
-    func loadCategoriesList() {
-        
+        bestSellingList = groceriseList.filter { $0.amount < 10 }
     }
 }

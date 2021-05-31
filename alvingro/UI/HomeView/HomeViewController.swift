@@ -34,6 +34,7 @@ class HomeViewController: UIViewController {
         voucherCollectionView.delegate = self
         voucherCollectionView.dataSource = self
         voucherCollectionView.register(VoucherCollectionViewCell.nib, forCellWithReuseIdentifier: VoucherCollectionViewCell.identifier)
+        voucherCollectionView.allowsSelection = false
         
         highlyRecommendedCollectionView.delegate = self
         highlyRecommendedCollectionView.dataSource = self
@@ -115,7 +116,31 @@ extension HomeViewController: UICollectionViewDataSource {
 }
 
 extension HomeViewController: UICollectionViewDelegate {
-    
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == categoriesCollectionView {
+            //Chuyển sang màn ExploreView
+            return
+        }
+        
+        if #available(iOS 13.0, *) {
+            guard let vc = self.storyboard?.instantiateViewController(identifier: DetailsViewController.identifier) as? DetailsViewController else { return }
+            switch collectionView {
+            case highlyRecommendedCollectionView:
+                vc.initValue(product: viewModel.highlyRecommendedList[indexPath.row])
+            case bestSellingCollectionView:
+                vc.initValue(product: viewModel.bestSellingList[indexPath.row])
+            case groceriesCollectionView:
+                vc.initValue(product: viewModel.groceriseList[indexPath.row])
+            default:
+                return
+            }
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            return
+        }
+        
+    }
 }
 
 extension HomeViewController: UIScrollViewDelegate {

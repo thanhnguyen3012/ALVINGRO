@@ -7,19 +7,20 @@
 
 import Foundation
 import Firebase
+import RealmSwift
 
-class Product: Codable {
-    dynamic var id: String?
-    dynamic var photos: [String]?
-    dynamic var name: String?
-    dynamic var amount: Int?
-    dynamic var price: Float?
-    dynamic var unit: String?
-    dynamic var details: String?
-    dynamic var nutrition: [String]?
-    dynamic var rate: Float?
-    dynamic var categories: [String]?
-    dynamic var brand: String?
+class Product: Object, Codable {
+    @objc dynamic var id: String?
+    var photos = List<String>()
+    @objc dynamic var name: String?
+    @objc dynamic var amount: Int = 0
+    @objc dynamic var price: Float = 0
+    @objc dynamic var unit: String?
+    @objc dynamic var details: String?
+    var nutrition = List<String>()
+    @objc dynamic var rate: Float = 0
+    var categories = List<String>()
+    @objc dynamic var brand: String?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -35,31 +36,38 @@ class Product: Codable {
         case brand
     }
     
-    init(id: String?, photos: [String]?, name: String?, amount: Int?, price: Float?, unit: String?, details: String?, nutrition: [String]?, rate: Float?, categories: [String]?, brand: String?) {
+    override init() {}
+    
+    convenience init(id: String?, photos: [String]?, name: String?, amount: Int, price: Float, unit: String?, details: String?, nutrition: [String]?, rate: Float, categories: [String]?, brand: String?) {
+        self.init()
         self.id = id
-        self.photos = photos
+        self.photos.append(objectsIn: photos ?? [])
         self.name = name
         self.amount = amount
         self.price = price
         self.unit = unit
         self.details = details
-        self.nutrition = nutrition
+        self.nutrition.append(objectsIn: nutrition ?? [])
         self.rate = rate
-        self.categories = categories
+        self.categories.append(objectsIn: categories ?? [])
         self.brand = brand
     }
     
     init(snapshot: QueryDocumentSnapshot) {
         self.id = snapshot.documentID
-        self.photos = snapshot.get("photos") as? [String]
+        self.photos.append(objectsIn: snapshot.get("photos") as? List<String> ?? List<String>())
         self.name = snapshot.get("name") as? String
-        self.amount = snapshot.get("amount") as? Int
-        self.price = snapshot.get("price") as? Float
+        self.amount = snapshot.get("amount") as? Int ?? 0
+        self.price = snapshot.get("price") as? Float ?? 0
         self.unit = snapshot.get("unit") as? String
         self.details = snapshot.get("details") as? String
-        self.nutrition = snapshot.get("nutrition") as? [String]
-        self.rate = snapshot.get("rate") as? Float
-        self.categories = snapshot.get("categories") as? [String]
+        self.nutrition.append(objectsIn: snapshot.get("nutrition") as? List<String> ?? List<String>())
+        self.rate = snapshot.get("rate") as? Float ?? 0
+        self.categories.append(objectsIn: snapshot.get("categories") as? List<String> ?? List<String>())
         self.brand = snapshot.get("brand") as? String
     }
+    
+//    override static func primaryKey() -> String? {
+//       return "id"
+//   }
 }
