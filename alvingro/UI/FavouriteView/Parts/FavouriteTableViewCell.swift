@@ -30,7 +30,7 @@ class FavouriteTableViewCell: UITableViewCell {
         priceLabel.text =  nil
     }
     func bindData(product: Product) {
-        photoImageView.getImageFromURL(url: product.photos?[0] ?? "", completionHandler: { img in
+        photoImageView.getImageFromURL(url: product.photos[0] ?? "", completionHandler: { img in
             if img == nil {
                 self.photoImageView.image = UIImage(named: "PlaceholderImage")
             }

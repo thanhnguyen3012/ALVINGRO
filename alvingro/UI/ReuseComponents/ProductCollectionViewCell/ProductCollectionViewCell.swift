@@ -26,10 +26,10 @@ class ProductCollectionViewCell: UICollectionViewCell {
     }
     
     func bindData(product: Product) {
-        thumbImageView.getImageFromURL(url: product.photos?[0] ?? "", completionHandler: { _ in ()})
+        thumbImageView.getImageFromURL(url: product.photos[0], completionHandler: { _ in ()})
         productNameLabel.text = product.name ?? ""
         unitLabel.text = product.unit ?? ""
-        priceLabel.text = "$\(product.price ?? 0.00)"
+        priceLabel.text = "$\(product.price)"
     }
     
     @IBAction func addButtonTapped(_ sender: Any) {

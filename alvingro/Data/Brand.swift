@@ -7,17 +7,21 @@
 
 import Foundation
 import Firebase
+import RealmSwift
 
-class Brand: Codable {
-    var id: String?
-    var name: String?
+class Brand: Object, Codable {
+    @objc dynamic var id: String?
+    @objc dynamic var name: String?
     
     enum CodingKeys: String, CodingKey {
         case id
         case name
     }
     
-    init(id: String, name: String?) {
+    override init() {}
+    
+    convenience init(id: String, name: String?) {
+        self.init()
         self.id = id
         self.name = name
     }

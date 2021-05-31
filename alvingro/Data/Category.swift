@@ -7,13 +7,17 @@
 
 import Foundation
 import Firebase
+import RealmSwift
 
-class Category: Codable {
-    var id: String?
-    var name: String?
-    var photo: String?
+class Category: Object, Codable {
+    @objc dynamic var id: String?
+    @objc dynamic var name: String?
+    @objc dynamic var photo: String?
     
-    init(id: String?, name: String?, photo: String?) {
+    override init() {}
+    
+    convenience init(id: String?, name: String?, photo: String?) {
+        self.init()
         self.id = id
         self.name = name
         self.photo = photo

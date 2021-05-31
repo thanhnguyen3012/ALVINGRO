@@ -7,15 +7,16 @@
 
 import Foundation
 import Firebase
-
-class Voucher: Codable{
-    var id: String?
-    var discount: Float?
-    var allow: [String]?
-    var startDate: Date?
-    var exp: Date?
-    var amount: Int?
-    var photo: String?
+import RealmSwift
+         
+class Voucher: Object, Codable{
+    @objc dynamic var id: String?
+    @objc dynamic var discount: Float = 0
+    var allow = List<String>()
+    @objc dynamic var startDate: Date?
+    @objc dynamic var exp: Date?
+    @objc dynamic var amount: Int = 0
+    @objc dynamic var photo: String?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -27,23 +28,26 @@ class Voucher: Codable{
         case photo
     }
     
-    init(id: String?, discount: Float?, allow: [String]?, startDate: Date, exp: Date?, amount: Int?, photo: String?) {
+    override init() {}
+    
+    convenience init(id: String?, discount: Float?, allow: [String]?, startDate: Date, exp: Date?, amount: Int?, photo: String?) {
+        self.init()
         self.id = id
-        self.discount = discount
-        self.allow = allow
+        self.discount = discount ?? 0
+        self.allow.append(objectsIn: allow ?? [])
         self.startDate = startDate
         self.exp = exp
-        self.amount = amount
+        self.amount = amount ?? 0
         self.photo = photo
     }
     
     init(snapshot: QueryDocumentSnapshot) {
         self.id = snapshot.documentID
-        self.discount = snapshot.get("discount") as? Float
-        self.allow = snapshot.get("allow") as? [String]
+        self.discount = snapshot.get("discount") as? Float ?? 0
+        self.allow.append(objectsIn: snapshot.get("allow") as? List<String> ?? List<String>())
         self.startDate = snapshot.get("start_date") as? Date
         self.exp = snapshot.get("exp") as? Date
-        self.amount = snapshot.get("amount") as? Int
+        self.amount = snapshot.get("amount") as? Int ?? 0
         self.photo = snapshot.get("photo") as? String
     }
 }
