@@ -46,6 +46,9 @@
 		84930EAD2652600100CFBD77 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84930EAC2652600100CFBD77 /* SignUpViewModel.swift */; };
 		84930EAF2652686800CFBD77 /* UITextField+underlined.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84930EAE2652686800CFBD77 /* UITextField+underlined.swift */; };
 		84930EB126526BBB00CFBD77 /* UIButton+mainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84930EB026526BBB00CFBD77 /* UIButton+mainButton.swift */; };
+		849881002665D889007663E1 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849880FF2665D889007663E1 /* Cart.swift */; };
+		849881022665DBFA007663E1 /* LikedProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849881012665DBFA007663E1 /* LikedProduct.swift */; };
+		849881042666265A007663E1 /* UITableView+setEmptyMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849881032666265A007663E1 /* UITableView+setEmptyMessage.swift */; };
 		84A0FC012657B7B900880769 /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0FC002657B7B900880769 /* Brand.swift */; };
 		84C423182664B00E00C5596D /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C423162664B00E00C5596D /* DetailsViewModel.swift */; };
 		84C423192664B00E00C5596D /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C423172664B00E00C5596D /* DetailsViewController.swift */; };
@@ -106,6 +109,9 @@
 		84930EAC2652600100CFBD77 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		84930EAE2652686800CFBD77 /* UITextField+underlined.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+underlined.swift"; sourceTree = "<group>"; };
 		84930EB026526BBB00CFBD77 /* UIButton+mainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+mainButton.swift"; sourceTree = "<group>"; };
+		849880FF2665D889007663E1 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
+		849881012665DBFA007663E1 /* LikedProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedProduct.swift; sourceTree = "<group>"; };
+		849881032666265A007663E1 /* UITableView+setEmptyMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+setEmptyMessage.swift"; sourceTree = "<group>"; };
 		84A0FC002657B7B900880769 /* Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
 		84C423162664B00E00C5596D /* DetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		84C423172664B00E00C5596D /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
@@ -334,6 +340,8 @@
 				84A0FC002657B7B900880769 /* Brand.swift */,
 				84C423202664E62000C5596D /* User.swift */,
 				84C423222664EEC700C5596D /* LocalDatabase.swift */,
+				849880FF2665D889007663E1 /* Cart.swift */,
+				849881012665DBFA007663E1 /* LikedProduct.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -348,6 +356,7 @@
 				8445B1272656591F00044F11 /* UINavigationBar+sizeThatFit.swift */,
 				8453DEED2663E4F600C01EBA /* Results+toArray.swift */,
 				84C423242664F4CE00C5596D /* UIImage+averageColor.swift */,
+				849881032666265A007663E1 /* UITableView+setEmptyMessage.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -557,6 +566,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				849881002665D889007663E1 /* Cart.swift in Sources */,
 				8443AE952663A52E003AAF1E /* FavouriteViewModel.swift in Sources */,
 				8453DF032663F23800C01EBA /* CategoryCollectionViewCell.swift in Sources */,
 				84D929E22655F35D00805092 /* APIManager.swift in Sources */,
@@ -571,10 +581,12 @@
 				84E3FC10266126C800A4E373 /* CartViewModel.swift in Sources */,
 				8445B0F3265602E600044F11 /* Product.swift in Sources */,
 				8445B10126560ED400044F11 /* HomeViewController.swift in Sources */,
+				849881022665DBFA007663E1 /* LikedProduct.swift in Sources */,
 				8445B0F02655FD6700044F11 /* ProductCollectionViewCell.swift in Sources */,
 				84930EAB26525FF600CFBD77 /* SignUpViewController.swift in Sources */,
 				84930EAD2652600100CFBD77 /* SignUpViewModel.swift in Sources */,
 				8445B1282656592000044F11 /* UINavigationBar+sizeThatFit.swift in Sources */,
+				849881042666265A007663E1 /* UITableView+setEmptyMessage.swift in Sources */,
 				84930EA526525C8700CFBD77 /* NSObject+identifier.swift in Sources */,
 				84E3FBFB2661095B00A4E373 /* ExploreViewModel.swift in Sources */,
 				8453DF042663F25200C01EBA /* FavouriteTableViewCell.swift in Sources */,
