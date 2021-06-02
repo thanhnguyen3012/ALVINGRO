@@ -34,6 +34,7 @@ class HomeViewController: UIViewController {
     }
     
     func setupView() {
+        tabBarController?.tabBar.unselectedItemTintColor = .black
 
         voucherCollectionView.delegate = self
         voucherCollectionView.dataSource = self

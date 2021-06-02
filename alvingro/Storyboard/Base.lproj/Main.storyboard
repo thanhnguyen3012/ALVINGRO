@@ -898,7 +898,7 @@
             <objects>
                 <tabBarController id="cjc-l4-zcD" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="35D-rn-0cw"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="faJ-GG-tqU">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="faJ-GG-tqU" customClass="CustomTabBar" customModule="alvingro" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -918,6 +918,11 @@
             <point key="canvasLocation" x="820" y="24"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="faJ-GG-tqU">
+            <size key="intrinsicContentSize" width="-1" height="83"/>
+        </designable>
+    </designables>
     <resources>
         <image name="Account" width="24.5" height="24.5"/>
         <image name="Account-highlighted" width="24.5" height="24.5"/>
