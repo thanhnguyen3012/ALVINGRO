@@ -27,6 +27,12 @@ class LocalDatabase {
         }
     }
     
+    func getObjects<T: Object>(key: String, value: String, ofType: T.Type) -> [T] {
+        try! db.write {
+            return db.objects(T.self).filter("\(key) = %@", value).toArray(ofType: T.self)
+        }
+    }
+    
     func set<T: Object>(_ item: T) {
         try! db.write {
             db.add(item)

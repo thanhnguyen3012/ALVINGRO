@@ -49,6 +49,8 @@
 		849881002665D889007663E1 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849880FF2665D889007663E1 /* Cart.swift */; };
 		849881022665DBFA007663E1 /* LikedProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849881012665DBFA007663E1 /* LikedProduct.swift */; };
 		849881042666265A007663E1 /* UITableView+setEmptyMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849881032666265A007663E1 /* UITableView+setEmptyMessage.swift */; };
+		8498810726663BCE007663E1 /* UICollectionView+setEmptyMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8498810626663BCE007663E1 /* UICollectionView+setEmptyMessage.swift */; };
+		849FF8BC26676D8900F4802B /* MyColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849FF8BB26676D8900F4802B /* MyColor.swift */; };
 		84A0FC012657B7B900880769 /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0FC002657B7B900880769 /* Brand.swift */; };
 		84C423182664B00E00C5596D /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C423162664B00E00C5596D /* DetailsViewModel.swift */; };
 		84C423192664B00E00C5596D /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C423172664B00E00C5596D /* DetailsViewController.swift */; };
@@ -112,6 +114,8 @@
 		849880FF2665D889007663E1 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		849881012665DBFA007663E1 /* LikedProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedProduct.swift; sourceTree = "<group>"; };
 		849881032666265A007663E1 /* UITableView+setEmptyMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+setEmptyMessage.swift"; sourceTree = "<group>"; };
+		8498810626663BCE007663E1 /* UICollectionView+setEmptyMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+setEmptyMessage.swift"; sourceTree = "<group>"; };
+		849FF8BB26676D8900F4802B /* MyColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyColor.swift; sourceTree = "<group>"; };
 		84A0FC002657B7B900880769 /* Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
 		84C423162664B00E00C5596D /* DetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		84C423172664B00E00C5596D /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
@@ -342,6 +346,7 @@
 				84C423222664EEC700C5596D /* LocalDatabase.swift */,
 				849880FF2665D889007663E1 /* Cart.swift */,
 				849881012665DBFA007663E1 /* LikedProduct.swift */,
+				849FF8BB26676D8900F4802B /* MyColor.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -357,6 +362,7 @@
 				8453DEED2663E4F600C01EBA /* Results+toArray.swift */,
 				84C423242664F4CE00C5596D /* UIImage+averageColor.swift */,
 				849881032666265A007663E1 /* UITableView+setEmptyMessage.swift */,
+				8498810626663BCE007663E1 /* UICollectionView+setEmptyMessage.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -575,6 +581,7 @@
 				84E3FC0D2661168000A4E373 /* CartTableViewCell.swift in Sources */,
 				8453DEEE2663E4F600C01EBA /* Results+toArray.swift in Sources */,
 				8445B10F2656205F00044F11 /* HomeViewModel.swift in Sources */,
+				849FF8BC26676D8900F4802B /* MyColor.swift in Sources */,
 				84C423192664B00E00C5596D /* DetailsViewController.swift in Sources */,
 				84930EA126524F4300CFBD77 /* SignInViewController.swift in Sources */,
 				8445B10D2656101600044F11 /* AccountViewController.swift in Sources */,
@@ -607,6 +614,7 @@
 				84930E8826521EFF00CFBD77 /* SceneDelegate.swift in Sources */,
 				84A0FC012657B7B900880769 /* Brand.swift in Sources */,
 				84D929E02655F23400805092 /* TargetType.swift in Sources */,
+				8498810726663BCE007663E1 /* UICollectionView+setEmptyMessage.swift in Sources */,
 				84930EAF2652686800CFBD77 /* UITextField+underlined.swift in Sources */,
 				84C423232664EEC700C5596D /* LocalDatabase.swift in Sources */,
 				84C423182664B00E00C5596D /* DetailsViewModel.swift in Sources */,
