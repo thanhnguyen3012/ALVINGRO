@@ -48,6 +48,7 @@ class DetailsViewController: UIViewController {
         
         loveButton.setImage(UIImage(named: "Love-highlighted"), for: .selected)
         loveButton.setImage(UIImage(named: "Love"), for: .normal)
+        loveButton.isSelected = viewModel.getStateOfLoveButton()
         
         unitLabel.text = viewModel.product.unit
         
@@ -105,6 +106,8 @@ class DetailsViewController: UIViewController {
     //MARK: - Actions
     
     @IBAction func loveButtonTapped(_ sender: Any) {
+        loveButton.isSelected = !loveButton.isSelected
+        viewModel.addToLikeList(isSelected: loveButton.isSelected)
     }
     
     @IBAction func decreaseButtonTapped(_ sender: Any) {

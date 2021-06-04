@@ -14,6 +14,12 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        layer.borderWidth = 1
+        layer.cornerRadius = 18
+    }
+    
+    override func prepareForReuse() {
+        imageView.image = nil
     }
     
     func bindData(category: Category) {
@@ -23,6 +29,11 @@ class CategoryCollectionViewCell: UICollectionViewCell {
             }
         })
         nameLabel.text = category.name
+    }
+    
+    func setCellColor(color: UIColor) {
+        backgroundColor = color.withAlphaComponent(0.25)
+        layer.borderColor = color.cgColor
     }
 
 }

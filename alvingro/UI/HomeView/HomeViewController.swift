@@ -25,11 +25,16 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupView()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     func setupView() {
+        tabBarController?.tabBar.unselectedItemTintColor = .black
 
         voucherCollectionView.delegate = self
         voucherCollectionView.dataSource = self
@@ -51,8 +56,6 @@ class HomeViewController: UIViewController {
         groceriesCollectionView.delegate = self
         groceriesCollectionView.dataSource = self
         groceriesCollectionView.register(ProductCollectionViewCell.nib, forCellWithReuseIdentifier: ProductCollectionViewCell.identifier)
-        
-        navigationController?.setNavigationBarHidden(true, animated: false)
         
         contentScrollView.delegate = self
     }
@@ -96,6 +99,7 @@ extension HomeViewController: UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCategoryCollectionViewCell.identifier, for: indexPath) as? HomeCategoryCollectionViewCell else {
                 return UICollectionViewCell()
             }
+            cell.setColor(index: indexPath.row)
             cell.bindData(category: viewModel.categoriesList[indexPath.row])
             return cell
         default:
