@@ -39,6 +39,15 @@ class LocalDatabase {
         }
     }
     
+    func updateAmountCart(idProduct: String, newAmount: Int) {
+        print("Test \(idProduct) - amount \(newAmount)")
+        if let cart = self.getAnObject(key: "idProduct", value: idProduct, ofType: Cart.self) {
+            try! db.write {
+                cart.amount = newAmount
+            }
+        }
+    }
+    
     func removeAnObject<T: Object>(ofType: T.Type, key: String, value: String) {
         if let object = db.objects(T.self).filter("\(key) = %@", value).first {
             try! db.write {

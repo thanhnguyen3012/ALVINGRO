@@ -14,13 +14,14 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="157" id="KGk-i7-Jjw" customClass="CartTableViewCell" customModule="alvingro" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="425" height="147"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="425" height="147"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zKS-5F-ROf">
-                        <rect key="frame" x="25" y="25" width="97" height="97"/>
+                        <rect key="frame" x="25" y="25" width="64" height="64"/>
                         <constraints>
+                            <constraint firstAttribute="height" constant="64" id="25p-i0-iPG"/>
                             <constraint firstAttribute="width" secondItem="zKS-5F-ROf" secondAttribute="height" multiplier="1:1" id="nze-43-Lkp"/>
                         </constraints>
                     </imageView>
@@ -33,40 +34,46 @@
                         <state key="normal" image="Cancel-gray"/>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jv5-Oc-izl">
-                        <rect key="frame" x="152" y="79" width="45" height="45"/>
+                        <rect key="frame" x="119" y="79" width="45" height="45"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="45" id="6PT-8h-x8L"/>
                             <constraint firstAttribute="width" constant="45" id="Wre-gH-5UM"/>
                         </constraints>
                         <state key="normal" image="Minus-unactive"/>
+                        <connections>
+                            <action selector="decreaseButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="bcH-nC-8de"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3bk-DC-25X">
-                        <rect key="frame" x="241" y="79" width="45" height="45"/>
+                        <rect key="frame" x="208" y="79" width="45" height="45"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="45" id="PmB-Pl-Q1W"/>
                             <constraint firstAttribute="width" constant="45" id="erK-RE-VmL"/>
                         </constraints>
                         <state key="normal" image="Plus-active"/>
+                        <connections>
+                            <action selector="increaseButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Cos-gs-xRA"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FE1-FB-5M4">
-                        <rect key="frame" x="215" y="91.5" width="8" height="20"/>
+                        <rect key="frame" x="182" y="91.5" width="8" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B1p-Ek-zbe">
-                        <rect key="frame" x="152" y="50" width="27" height="17"/>
+                        <rect key="frame" x="119" y="50" width="27" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" systemColor="systemGrayColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWC-SL-631">
-                        <rect key="frame" x="152" y="25" width="102" height="20"/>
+                        <rect key="frame" x="119" y="25" width="102" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kA-JZ-R0V">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kA-JZ-R0V">
                         <rect key="frame" x="352" y="65" width="48" height="22"/>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <nil key="textColor"/>

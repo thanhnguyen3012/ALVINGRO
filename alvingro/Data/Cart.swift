@@ -10,7 +10,7 @@ import Firebase
 import RealmSwift
 
 /// Every Cart instance storages info of 1 product in basket store of an User (with idUser)
-class Card: Object, Codable {
+class Cart: Object, Codable {
     @objc dynamic var idProduct: String?
     @objc dynamic var idUser: String?
     @objc dynamic var amount: Int = 0
