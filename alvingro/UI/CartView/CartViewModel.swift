@@ -30,6 +30,9 @@ class CartViewModel {
         for cart in cartsList {
             guard let product = LocalDatabase.shared.getAnObject(key: "id", value: cart.idProduct ?? "", ofType: Product.self) else { continue }
             productsList.append(product)
+            if cart.amount > product.amount {
+                LocalDatabase.shared.updateAmountCart(idProduct: cart.idProduct ?? "", amountOffset: product.amount - cart.amount)
+            }
         }
         delegate?.updateCart(totalPrice: reloadTotalPrice())
     }
