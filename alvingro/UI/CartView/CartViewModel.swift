@@ -45,7 +45,7 @@ class CartViewModel {
     func changeAmount(at index: Int, offsetValue: Int) {
         // check maximun amount of this proct to decion whether amount in cart can be changed
         if (cartsList[index].amount + offsetValue <= productsList[index].amount) && (cartsList[index].amount + offsetValue > 0) {
-            LocalDatabase.shared.updateAmountCart(idProduct: cartsList[index].idProduct ?? "", newAmount: cartsList[index].amount + offsetValue)
+            LocalDatabase.shared.updateAmountCart(idProduct: cartsList[index].idProduct ?? "", amountOffset: offsetValue)
             delegate?.updateCartAt(index: index)
         }
     }

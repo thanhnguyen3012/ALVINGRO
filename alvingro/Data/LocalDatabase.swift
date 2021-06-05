@@ -39,12 +39,14 @@ class LocalDatabase {
         }
     }
     
-    func updateAmountCart(idProduct: String, newAmount: Int) {
-        print("Test \(idProduct) - amount \(newAmount)")
+    func updateAmountCart(idProduct: String, amountOffset: Int) {
+        // If Cart isexisting, change amount
         if let cart = self.getAnObject(key: "idProduct", value: idProduct, ofType: Cart.self) {
             try! db.write {
-                cart.amount = newAmount
+                cart.amount = cart.amount + amountOffset
             }
+        } else { // If cart is not existing, create new Cart
+            self.set(Cart(idProduct: idProduct, idUser: User.current.id, amount: amountOffset))
         }
     }
     

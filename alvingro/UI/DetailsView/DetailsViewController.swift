@@ -134,6 +134,7 @@ class DetailsViewController: UIViewController {
     }
     
     @IBAction func addToBasketButtonTapped(_ sender: Any) {
+        viewModel.addToCart()
     }
 }
  
@@ -156,9 +157,18 @@ extension DetailsViewController: UICollectionViewDelegate, UICollectionViewDataS
 }
 
 extension DetailsViewController: DetailsViewModelEvents {
+    func showNotification(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            self.viewModel.changeAmount(newValue: 1)
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func changeAmountFail(message: String, disableIncreaseButton: Bool, disableDecreaseButton: Bool) {
-        let alert = UIAlertController(title: "Changing amount failt.", message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Changing amount fail.", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     func changeAmount(amount: Int, disableIncreaseButton: Bool, disableDecreaseButton: Bool) {
