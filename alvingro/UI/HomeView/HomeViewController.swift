@@ -10,6 +10,7 @@ import Firebase
 
 class HomeViewController: UIViewController {
 
+    //MARK: - Outlets
     @IBOutlet weak var voucherCollectionView: UICollectionView!
     @IBOutlet weak var highlyRecommendedCollectionView: UICollectionView!
     @IBOutlet weak var bestSellingCollectionView: UICollectionView!
@@ -21,8 +22,10 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var headerView: UIView!
     
+    //MARK: - Variables
     lazy var viewModel = HomeViewModel(delegate: self)
     
+    //MARK: - Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -60,14 +63,29 @@ class HomeViewController: UIViewController {
         contentScrollView.delegate = self
     }
     
-    
+    //MARK: - Action
     @IBAction func seeAllHighlyRecommendedButtonTapped(_ sender: Any) {
+        if #available(iOS 13.0, *) {
+            guard let vc = storyboard?.instantiateViewController(identifier: SeeAllViewController.identifier) as? SeeAllViewController else { return }
+            vc.initValue(keyWord: "HighlyRecommended")
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     @IBAction func seeAllBestSellingButtonTapped(_ sender: Any) {
+        if #available(iOS 13.0, *) {
+            guard let vc = storyboard?.instantiateViewController(identifier: SeeAllViewController.identifier) as? SeeAllViewController else { return }
+            vc.initValue(keyWord: "BestSelling")
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     @IBAction func seeAllGroceriesButtonTapped(_ sender: Any) {
+        if #available(iOS 13.0, *) {
+            guard let vc = storyboard?.instantiateViewController(identifier: SeeAllViewController.identifier) as? SeeAllViewController else { return }
+            vc.initValue(keyWord: "All")
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 
@@ -123,8 +141,11 @@ extension HomeViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == categoriesCollectionView {
-            //Chuyển sang màn ExploreView
-            return
+            if #available(iOS 13.0, *) {
+                guard let vc = storyboard?.instantiateViewController(identifier: SeeAllViewController.identifier) as? SeeAllViewController else { return }
+                vc.initValue(keyWord: viewModel.categoriesList[indexPath.row].id ?? "")
+                navigationController?.pushViewController(vc, animated: true)
+            }
         }
         
         if #available(iOS 13.0, *) {

@@ -80,7 +80,7 @@
         <!--Home-->
         <scene sceneID="bjO-mD-74T">
             <objects>
-                <viewController id="z5t-Ai-DeK" customClass="HomeViewController" customModule="alvingro" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="z5t-Ai-DeK" customClass="HomeViewController" customModule="alvingro" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SFe-lz-PCB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -345,7 +345,7 @@
         <!--Account-->
         <scene sceneID="OhD-6N-Duj">
             <objects>
-                <viewController id="9Az-ye-Kag" customClass="AccountViewController" customModule="alvingro" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AccountViewController" id="9Az-ye-Kag" customClass="AccountViewController" customModule="alvingro" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3as-z5-rJp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -357,6 +357,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bjx-9A-E4H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3112" y="23"/>
+        </scene>
+        <!--See All View Controller-->
+        <scene sceneID="7Ul-CW-rXr">
+            <objects>
+                <viewController storyboardIdentifier="SeeAllViewController" id="kxr-cy-KVy" customClass="SeeAllViewController" customModule="alvingro" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yPq-a9-Ovx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="F5Z-4P-ZA6">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cb2-HQ-gYI">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="25" minY="20" maxX="25" maxY="20"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hrj-6E-c42"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hrj-6E-c42" firstAttribute="bottom" secondItem="F5Z-4P-ZA6" secondAttribute="bottom" id="BNl-q8-BZR"/>
+                            <constraint firstItem="hrj-6E-c42" firstAttribute="trailing" secondItem="F5Z-4P-ZA6" secondAttribute="trailing" id="D60-aU-b1h"/>
+                            <constraint firstItem="F5Z-4P-ZA6" firstAttribute="leading" secondItem="hrj-6E-c42" secondAttribute="leading" id="e9I-Ij-bR7"/>
+                            <constraint firstItem="F5Z-4P-ZA6" firstAttribute="top" secondItem="hrj-6E-c42" secondAttribute="top" id="iKh-Ls-rmW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="productsCollectionView" destination="F5Z-4P-ZA6" id="AdE-XA-0St"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Q2-jm-xtw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4087" y="373"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="8mn-ee-HGh">
@@ -710,7 +747,7 @@
         <!--Explore-->
         <scene sceneID="XHu-ll-T4Q">
             <objects>
-                <viewController id="Ksb-Mg-5gM" customClass="ExploreViewController" customModule="alvingro" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ExploreViewController" id="Ksb-Mg-5gM" customClass="ExploreViewController" customModule="alvingro" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZeA-Fg-18S">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -777,7 +814,7 @@
         <!--Favorite-->
         <scene sceneID="ZO8-aI-C5f">
             <objects>
-                <viewController id="46G-jP-abI" customClass="FavouriteViewController" customModule="alvingro" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FavouriteViewController" id="46G-jP-abI" customClass="FavouriteViewController" customModule="alvingro" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uWj-q1-ekO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -822,7 +859,7 @@
         <!--Cart-->
         <scene sceneID="6J5-qc-eBr">
             <objects>
-                <viewController id="4r0-XO-nTZ" customClass="CartViewController" customModule="alvingro" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CartViewController" id="4r0-XO-nTZ" customClass="CartViewController" customModule="alvingro" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7w7-Nz-Uc6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
