@@ -15,14 +15,22 @@ class ProductCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var addButton: UIButton!
     
+    private var idProduct: String?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.contentView.layer.cornerRadius = 18
-        self.contentView.layer.borderWidth = 1
-        self.contentView.layer.borderColor = UIColor(white: 0.8, alpha: 1).cgColor
+        contentView.layer.cornerRadius = 18
+        contentView.layer.borderWidth = 1
+        contentView.layer.borderColor = UIColor(white: 0.8, alpha: 1).cgColor
         
         addButton.layer.cornerRadius = 17
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        thumbImageView.image = UIImage(named: "PlaceholderImage")
+        idProduct = nil
     }
     
     func bindData(product: Product) {
@@ -30,9 +38,12 @@ class ProductCollectionViewCell: UICollectionViewCell {
         productNameLabel.text = product.name ?? ""
         unitLabel.text = product.unit ?? ""
         priceLabel.text = "$\(product.price)"
+        idProduct = product.id
     }
     
     @IBAction func addButtonTapped(_ sender: Any) {
+        guard let idPro = idProduct else { return }
+        LocalDatabase.shared.updateAmountCart(idProduct: idPro, amountOffset: 1)
     }
     
 }

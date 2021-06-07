@@ -29,8 +29,9 @@ class FavouriteTableViewCell: UITableViewCell {
         unitLabel.text =  nil
         priceLabel.text =  nil
     }
+    
     func bindData(product: Product) {
-        photoImageView.getImageFromURL(url: product.photos[0] ?? "", completionHandler: { img in
+        photoImageView.getImageFromURL(url: product.photos[0], completionHandler: { img in
             if img == nil {
                 self.photoImageView.image = UIImage(named: "PlaceholderImage")
             }
@@ -38,6 +39,6 @@ class FavouriteTableViewCell: UITableViewCell {
         
         productNameLabel.text = product.name
         unitLabel.text = product.unit
-        priceLabel.text = "$\(product.price ?? 0.00)"
+        priceLabel.text = "$\(product.price)"
     }
 }

@@ -10,6 +10,7 @@ import Foundation
 protocol DetailsViewModelEvents: AnyObject {
     func changeAmountFail(message: String, disableIncreaseButton: Bool, disableDecreaseButton: Bool)
     func changeAmount(amount: Int, disableIncreaseButton: Bool, disableDecreaseButton: Bool)
+    func showNotification(title: String, message: String)
 }
 
 class DetailsViewModel {
@@ -78,5 +79,10 @@ class DetailsViewModel {
             // Remove likedProduct out off realm
             LocalDatabase.shared.removeAnObject(ofType: LikedProduct.self, key: "idProduct", value: product.id ?? "")
         }
+    }
+    
+    func addToCart() {
+        LocalDatabase.shared.updateAmountCart(idProduct: product.id ?? "", amountOffset: amount)
+        delegate?.showNotification(title: "Success", message: "Add to cart successfully.")
     }
 }
