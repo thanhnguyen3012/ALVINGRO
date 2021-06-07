@@ -43,6 +43,10 @@ class SignUpViewController: UIViewController {
     @IBAction func loginButtonTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 extension SignUpViewController: SignUpViewModelEvents {

@@ -18,8 +18,12 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.checkCurrentAccount()
     }
     
     func setupView() {
@@ -36,6 +40,18 @@ class SignInViewController: UIViewController {
         
         viewModel.signIn(email: email, password: password)
     }
+    
+    @IBAction func signUpButtonTapped(_ sender: Any) {
+        if #available(iOS 13.0, *) {
+            guard let vc = storyboard?.instantiateViewController(identifier: SignUpViewController.identifier) as? SignUpViewController else { return }
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 extension SignInViewController: SignInViewModelEvents {
@@ -48,5 +64,9 @@ extension SignInViewController: SignInViewModelEvents {
         let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "cancel", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
+    }
+    
+    func signedIn() {
+        dismiss(animated: true, completion: nil)
     }
 }

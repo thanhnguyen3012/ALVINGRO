@@ -11,6 +11,7 @@ import Firebase
 protocol SignInViewModelEvents: AnyObject {
     func signInSuccess()
     func signInFailed(error: Error)
+    func signedIn()
 }
 
 class SignInViewModel {
@@ -31,6 +32,12 @@ class SignInViewModel {
                 print(authResult)
                 strongSelf.delegate?.signInSuccess()
             }
-      }
+        }
+    }
+    
+    func checkCurrentAccount() {
+        if  Auth.auth().currentUser != nil {
+            delegate?.signedIn()
+        }
     }
 }
