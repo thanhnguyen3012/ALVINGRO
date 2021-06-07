@@ -66,8 +66,4 @@ class Product: Object, Codable {
         self.categories.append(objectsIn: snapshot.get("categories") as? List<String> ?? List<String>())
         self.brand = snapshot.get("brand") as? String
     }
-    
-//    override static func primaryKey() -> String? {
-//       return "id"
-//   }
 }

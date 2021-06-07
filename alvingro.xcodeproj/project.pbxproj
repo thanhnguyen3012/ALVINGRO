@@ -174,6 +174,37 @@
 			path = SeeAllView;
 			sourceTree = "<group>";
 		};
+		840E792D266DCA8A005D92A0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8445B0F2265602E600044F11 /* Product.swift */,
+				8445B11E26563E7400044F11 /* Voucher.swift */,
+				8445B12026563F9200044F11 /* Category.swift */,
+				84A0FC002657B7B900880769 /* Brand.swift */,
+				84C423202664E62000C5596D /* User.swift */,
+				849880FF2665D889007663E1 /* Cart.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		840E792E266DCAAE005D92A0 /* LocalStorage */ = {
+			isa = PBXGroup;
+			children = (
+				84C423222664EEC700C5596D /* LocalDatabase.swift */,
+				849881012665DBFA007663E1 /* LikedProduct.swift */,
+				849FF8BB26676D8900F4802B /* MyColor.swift */,
+			);
+			path = LocalStorage;
+			sourceTree = "<group>";
+		};
+		840E792F266DCAE2005D92A0 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				8445B0EC2655FD2900044F11 /* ReuseComponents */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
 		8443AE962663A533003AAF1E /* Parts */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,11 +349,11 @@
 		84930E8426521EFF00CFBD77 /* alvingro */ = {
 			isa = PBXGroup;
 			children = (
-				84930EA626525DDD00CFBD77 /* Storyboard */,
 				84930E9C2652204A00CFBD77 /* Networking */,
 				84930E9B2652204400CFBD77 /* Extension */,
 				84930E9A2652203200CFBD77 /* Data */,
 				84930E992652202E00CFBD77 /* UI */,
+				840E792F266DCAE2005D92A0 /* UIComponents */,
 				84930E8526521EFF00CFBD77 /* AppDelegate.swift */,
 				84930E8726521EFF00CFBD77 /* SceneDelegate.swift */,
 				84930E8926521EFF00CFBD77 /* ViewController.swift */,
@@ -337,6 +368,7 @@
 		84930E992652202E00CFBD77 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				84930EA626525DDD00CFBD77 /* Storyboard */,
 				840E7926266DAF92005D92A0 /* SeeAllView */,
 				849FF8BD266777CC00F4802B /* CustomTabBar */,
 				84C4231A2664B03300C5596D /* DetailsView */,
@@ -345,7 +377,6 @@
 				8445B10326560FD100044F11 /* CartView */,
 				8445B10226560FC700044F11 /* ExploreView */,
 				8445B0FF26560EB000044F11 /* HomeView */,
-				8445B0EC2655FD2900044F11 /* ReuseComponents */,
 				84930EA926525FCC00CFBD77 /* SignUpView */,
 				84930E9F26524F2900CFBD77 /* SignInView */,
 			);
@@ -355,15 +386,8 @@
 		84930E9A2652203200CFBD77 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				8445B0F2265602E600044F11 /* Product.swift */,
-				8445B11E26563E7400044F11 /* Voucher.swift */,
-				8445B12026563F9200044F11 /* Category.swift */,
-				84A0FC002657B7B900880769 /* Brand.swift */,
-				84C423202664E62000C5596D /* User.swift */,
-				84C423222664EEC700C5596D /* LocalDatabase.swift */,
-				849880FF2665D889007663E1 /* Cart.swift */,
-				849881012665DBFA007663E1 /* LikedProduct.swift */,
-				849FF8BB26676D8900F4802B /* MyColor.swift */,
+				840E792E266DCAAE005D92A0 /* LocalStorage */,
+				840E792D266DCA8A005D92A0 /* Models */,
 			);
 			path = Data;
 			sourceTree = "<group>";
