@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		294BF82472F6D29E08BC40CA /* Pods_alvingro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA16476DF2D2349E7664532C /* Pods_alvingro.framework */; };
+		840E7928266DAFCE005D92A0 /* SeeAllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E7927266DAFCE005D92A0 /* SeeAllViewController.swift */; };
+		840E792A266DAFD7005D92A0 /* SeeAllViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E7929266DAFD7005D92A0 /* SeeAllViewModel.swift */; };
 		8443AE952663A52E003AAF1E /* FavouriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8443AE942663A52E003AAF1E /* FavouriteViewModel.swift */; };
 		8443AE9A2663A654003AAF1E /* FavouriteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8443AE982663A654003AAF1E /* FavouriteTableViewCell.xib */; };
 		8445B0F02655FD6700044F11 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8445B0EE2655FD6700044F11 /* ProductCollectionViewCell.swift */; };
@@ -72,6 +74,8 @@
 /* Begin PBXFileReference section */
 		077E12E08045614AB0EAEAC8 /* Pods-alvingro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alvingro.release.xcconfig"; path = "Target Support Files/Pods-alvingro/Pods-alvingro.release.xcconfig"; sourceTree = "<group>"; };
 		3C79213ED5EF9B86E8DFAA24 /* Pods-alvingro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alvingro.debug.xcconfig"; path = "Target Support Files/Pods-alvingro/Pods-alvingro.debug.xcconfig"; sourceTree = "<group>"; };
+		840E7927266DAFCE005D92A0 /* SeeAllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllViewController.swift; sourceTree = "<group>"; };
+		840E7929266DAFD7005D92A0 /* SeeAllViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllViewModel.swift; sourceTree = "<group>"; };
 		8443AE942663A52E003AAF1E /* FavouriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewModel.swift; sourceTree = "<group>"; };
 		8443AE982663A654003AAF1E /* FavouriteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouriteTableViewCell.xib; sourceTree = "<group>"; };
 		8445B0EE2655FD6700044F11 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -159,6 +163,15 @@
 				FA16476DF2D2349E7664532C /* Pods_alvingro.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		840E7926266DAF92005D92A0 /* SeeAllView */ = {
+			isa = PBXGroup;
+			children = (
+				840E7927266DAFCE005D92A0 /* SeeAllViewController.swift */,
+				840E7929266DAFD7005D92A0 /* SeeAllViewModel.swift */,
+			);
+			path = SeeAllView;
 			sourceTree = "<group>";
 		};
 		8443AE962663A533003AAF1E /* Parts */ = {
@@ -324,6 +337,7 @@
 		84930E992652202E00CFBD77 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				840E7926266DAF92005D92A0 /* SeeAllView */,
 				849FF8BD266777CC00F4802B /* CustomTabBar */,
 				84C4231A2664B03300C5596D /* DetailsView */,
 				8445B10526560FDF00044F11 /* AccountView */,
@@ -620,11 +634,13 @@
 				8445B12126563F9200044F11 /* Category.swift in Sources */,
 				84D929E42655F3B000805092 /* ResponseError.swift in Sources */,
 				84930E8A26521EFF00CFBD77 /* ViewController.swift in Sources */,
+				840E792A266DAFD7005D92A0 /* SeeAllViewModel.swift in Sources */,
 				84930E8626521EFF00CFBD77 /* AppDelegate.swift in Sources */,
 				84C4231E2664B11F00C5596D /* DetailsCollectionViewCell.swift in Sources */,
 				8445B10726560FF700044F11 /* ExploreViewController.swift in Sources */,
 				84930E8826521EFF00CFBD77 /* SceneDelegate.swift in Sources */,
 				84A0FC012657B7B900880769 /* Brand.swift in Sources */,
+				840E7928266DAFCE005D92A0 /* SeeAllViewController.swift in Sources */,
 				84D929E02655F23400805092 /* TargetType.swift in Sources */,
 				8498810726663BCE007663E1 /* UICollectionView+setEmptyMessage.swift in Sources */,
 				84930EAF2652686800CFBD77 /* UITextField+underlined.swift in Sources */,

@@ -51,32 +51,11 @@ class ExploreViewController: UIViewController {
         searchBar.layer.backgroundColor = UIColor(named: "BackGround-gray")?.cgColor
         searchBar.backgroundColor = UIColor(named: "BackGround-gray")
 
-//        searchBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 52)
         if #available(iOS 13.0, *) {
             searchBar.searchTextField.backgroundColor = UIColor(named: "BackGround-gray")
             searchBar.searchTextField.frame.size.height = 52
             searchBar.searchTextField.frame.size.width = searchBar.frame.width - 50
         }
-        
-//        if let textField = searchBar.value(forKey: "searchField") as? UITextField {
-//            textField.backgroundColor = .red
-//            textField.layer.cornerRadius = 15
-//            textField.layer.masksToBounds = true
-//            textField.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-//            textField.textColor = .black
-//            textField.frame = CGRect(x: 0, y: 0, width: self.view.frame.width - 50, height: 52)
-//
-//            let backgroundView = textField.subviews.first
-//            if #available(iOS 11.0, *) { // If `searchController` is in `navigationItem`
-//                backgroundView?.frame.size.height = 52
-//                backgroundView?.backgroundColor = UIColor.white.withAlphaComponent(0.3) //Or any transparent color that matches with the `navigationBar color`
-//                backgroundView?.subviews.forEach({ $0.removeFromSuperview() }) // Fixes an UI bug when searchBar appears or hides when scrolling
-//            }
-//            backgroundView?.layer.cornerRadius = 10.5
-//            backgroundView?.layer.masksToBounds = true
-//            //Continue changing more properties...
-//        }
-        
     }
     
     func showCategoriesCollectionVew() {
@@ -130,7 +109,11 @@ extension ExploreViewController: UICollectionViewDataSource {
 extension ExploreViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == categoriesCollectionView {
-            // Show CategoryView
+            if #available(iOS 13.0, *) {
+                guard let vc = self.storyboard?.instantiateViewController(identifier: SeeAllViewController.identifier) as? SeeAllViewController else { return }
+                vc.initValue(keyWord: viewModel.categoriesList[indexPath.row].id ?? "")
+                navigationController?.pushViewController(vc, animated: true)
+            }
         } else {
             viewModel.resultSelected(atIndex: indexPath.row)
         }
