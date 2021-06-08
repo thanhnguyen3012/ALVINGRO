@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 
 protocol EditUserViewModelEvents: AnyObject {
-    
+    func userProfileSaved()
 }
 
 class EditUserViewModel {
@@ -17,10 +17,10 @@ class EditUserViewModel {
     
     init(delegate: EditUserViewModelEvents) {
         self.delegate = delegate
-        getUserFromFirebase()
+//        getUserFromDevice()
     }
     
-    func getUserFromFirebase() {
+    func getUserFromDevice() {
         if let user = Auth.auth().currentUser {
             User.current.id = user.uid
         }
@@ -49,11 +49,15 @@ class EditUserViewModel {
     }
     
     func getCurrentAddress() -> String {
-        return ""
+        return User.current.address ?? ""
     }
     
-    func saveChange(name: String, email: String, phone: String, address: String) {
-        
+    func saveChange(name: String?, email: String?, phone: String?, address: String?) {
+        User.current.updateName(newName: name)
+        User.current.updateEmail(newEmail: email)
+        User.current.updatePhone(newPhone: phone)
+        User.current.updateAddress(newAddress: address)
+        delegate?.userProfileSaved()
     }
     
 }

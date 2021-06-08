@@ -8,6 +8,7 @@
 import Foundation
 import Firebase
 import RealmSwift
+import FirebaseFirestore
 
 class User: Object, Codable {
     static var current = User()
@@ -52,20 +53,39 @@ class User: Object, Codable {
         self.photo = photo
     }
     
-    func updateName(newName: String) {
-        name = newName
+    func updateFieldOnFirebase(field: CodingKeys, value: Any) {
+        let db = Firestore.firestore()
+        let ref = db.collection("User").document(id)
+        
+        ref.updateData([ field.rawValue: value ]) { error in
+            if let err = error {
+                print("Error when update user: \(err)")
+            }
+        }
     }
     
-    func updateAddress(newAddress: String) {
-        address = newAddress
+    func updateName(newName: String?) {
+        guard let newName = newName else { return }
+        LocalDatabase.shared.updateUserName(newName: newName)
+        updateFieldOnFirebase(field: .name, value: newName)
     }
     
-    func updateEmail(newEmail: String) {
-        email = newEmail
+    func updateAddress(newAddress: String?) {
+        guard let newAddress = newAddress else { return }
+        LocalDatabase.shared.updateUserAddress(newAddress: newAddress)
+        updateFieldOnFirebase(field: .address, value: newAddress)
     }
     
-    func updatePhone(newPhone: String) {
-        phone = newPhone
+    func updateEmail(newEmail: String?) {
+        guard let newEmail = newEmail else { return }
+        LocalDatabase.shared.updateUserEmail(newEmail: newEmail)
+        updateFieldOnFirebase(field: .email, value: newEmail)
+    }
+    
+    func updatePhone(newPhone: String?) {
+        guard let newPhone = newPhone else { return }
+        LocalDatabase.shared.updateUserPhone(newPhone: newPhone)
+        updateFieldOnFirebase(field: .phone, value: newPhone)
     }
     
     func updatePhoto(newUrl: String) {
