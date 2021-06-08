@@ -10,8 +10,9 @@ import Firebase
 
 protocol AccountViewModelEvents: AnyObject {
     func noLoggedIn()
-    func updateUserInfo(image: UIImage, name: String, email: String)
+    func updateUserInfo(image: String?, name: String, email: String)
     func showAlert(title: String, message: String)
+    func showLoginView()
 }
 
 class AccountViewModel {
@@ -20,6 +21,7 @@ class AccountViewModel {
     
     init(delegate: AccountViewModelEvents) {
         self.delegate = delegate
+        checkCurrentAccount()
     }
     
     func getTitleForTableViewCellAt(index: Int) -> String {
@@ -47,7 +49,7 @@ class AccountViewModel {
         if Auth.auth().currentUser == nil {
             delegate?.noLoggedIn()
         } else {
-            delegate?.updateUserInfo(image: UIImage(), name: "OK", email: "sample@gmail.com")
+            delegate?.updateUserInfo(image: User.current.photo, name: User.current.name ?? "Unknown", email: User.current.email ?? "")
         }
     }
     
@@ -55,10 +57,14 @@ class AccountViewModel {
         if Auth.auth().currentUser != nil {
             do {
                 try Auth.auth().signOut()
+                //Remove local User
+                LocalDatabase.shared.removeObjects(ofType: User.self)
                 checkCurrentAccount()
             } catch {
                 delegate?.showAlert(title: "Logout id unsuccessful", message: "")
             }
+        } else {
+            delegate?.showLoginView()
         }
     }
 }

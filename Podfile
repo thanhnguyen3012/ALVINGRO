@@ -13,5 +13,4 @@ target 'alvingro' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
   pod 'RealmSwift'
-  
 end

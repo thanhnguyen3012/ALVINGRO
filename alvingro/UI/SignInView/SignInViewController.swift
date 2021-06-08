@@ -57,16 +57,12 @@ class SignInViewController: UIViewController {
 extension SignInViewController: SignInViewModelEvents {
     func signInSuccess() {
         print("SIGN IN SUCCESS")
-        self.navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
     
     func signInFailed(error: Error) {
         let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "cancel", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
-    }
-    
-    func signedIn() {
-        dismiss(animated: true, completion: nil)
     }
 }

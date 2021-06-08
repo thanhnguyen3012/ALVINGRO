@@ -42,12 +42,30 @@ class AccountViewController: UIViewController {
         optionTableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
     
+    func changeStateOfLogoutButton(isLogoutButton: Bool) {
+        if isLogoutButton {
+            logoutButton.subButton()
+            logoutButton.setTitle("Log Out", for: .normal)
+            logoutImageView.image = UIImage(named: "Logout")
+        } else {
+            logoutButton.mainButton()
+            logoutButton.setTitle("Log In", for: .normal)
+            logoutImageView.image = UIImage(named: "Login")
+        }
+    }
+    
     //MARK: - Actions
     
     @IBAction func logoutButtonTapped(_ sender: Any) {
         viewModel.loggout()
     }
     
+    @IBAction func editButtonTapped(_ sender: Any) {
+        if #available(iOS 13.0, *) {
+            guard let vc = storyboard?.instantiateViewController(identifier: EditUserViewController.identifier) as? EditUserViewController else { return }
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }
 
 extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
@@ -78,26 +96,30 @@ extension AccountViewController: AccountViewModelEvents {
         userPhotoImageView.image = UIImage(named: "PlaceholderImage")
         nameLabel.text = "Unknown"
         emailLabel.text = "Login to continue."
+        changeStateOfLogoutButton(isLogoutButton: false)
         
         let alert = UIAlertController(title: "No logged in", message: "Do you want to log in?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Log in", style: .default, handler:{(alert: UIAlertAction!) in
-            let storyboard = UIStoryboard(name: "Auth", bundle: nil)
-            if #available(iOS 13.0, *) {
-                let vc = storyboard.instantiateViewController(identifier: SignInViewController.identifier) as SignInViewController
-                vc.modalPresentationStyle = .fullScreen
-                self.present(vc, animated: true, completion: nil)
-            }
+            self.showLoginView()
         }))
         
         present(alert, animated: true, completion: nil)
     }
     
-    func updateUserInfo(image: UIImage, name: String, email: String) {
-        userPhotoImageView.image = image
+    func updateUserInfo(image: String?, name: String, email: String) {
+        userPhotoImageView.getImageFromURL(url: image ?? "", completionHandler: {_ in})
         nameLabel.text = name
         emailLabel.text = email
+        changeStateOfLogoutButton(isLogoutButton: true)
     }
     
-    
+    func showLoginView() {
+        let storyboard = UIStoryboard(name: "Auth", bundle: nil)
+        if #available(iOS 13.0, *) {
+            let vc = storyboard.instantiateViewController(identifier: SignInViewController.identifier) as SignInViewController
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
 }
