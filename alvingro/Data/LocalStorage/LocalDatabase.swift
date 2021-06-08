@@ -50,6 +50,31 @@ class LocalDatabase {
         }
     }
     
+    func updateUserName(newName: String?) {
+        if newName == nil { return }
+        try! db.write {
+            User.current.name = newName
+        }
+    }
+    func updateUserAddress(newAddress: String?) {
+        if newAddress == nil { return }
+        try! db.write {
+            User.current.address = newAddress
+        }
+    }
+    func updateUserEmail(newEmail: String?) {
+        if newEmail == nil { return }
+        try! db.write {
+            User.current.email = newEmail
+        }
+    }
+    func updateUserPhone(newPhone: String?) {
+        if newPhone == nil { return }
+        try! db.write {
+            User.current.phone = newPhone
+        }
+    }
+    
     func removeAnObject<T: Object>(ofType: T.Type, key: String, value: String) {
         if let object = db.objects(T.self).filter("\(key) = %@", value).first {
             try! db.write {
