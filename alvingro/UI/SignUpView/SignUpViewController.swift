@@ -23,6 +23,7 @@ class SignUpViewController: UIViewController {
     }
     
     func setupView() {
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "BlurBackground") ?? UIImage())
         
         navigationController?.setNavigationBarHidden(false, animated: true)
         emailTextField.underlined()
@@ -31,6 +32,12 @@ class SignUpViewController: UIViewController {
         
         signupButton.mainButton()
         
+        let termText = NSMutableAttributedString(string: "By continuing you agree to our Terms of Service and Privacy Policy.")
+        termText.addAttribute(.foregroundColor, value: UIColor.gray, range: NSRange(location: 0, length: termText.length))
+        termText.addAttribute(.foregroundColor, value: UIColor(named: "MainGreen") ?? .green, range: NSRange(location: 31, length: 16))
+        termText.addAttribute(.foregroundColor, value: UIColor(named: "MainGreen") ?? .green, range: NSRange(location: 52, length: 14))
+        warningTextView.text = nil
+        warningTextView.attributedText = termText
     }
     
     @IBAction func signupButtonTapped(_ sender: Any) {

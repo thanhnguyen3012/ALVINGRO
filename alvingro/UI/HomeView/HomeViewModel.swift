@@ -50,4 +50,8 @@ class HomeViewModel {
     func loadBestSellingList() {
         bestSellingList = groceriseList.filter { $0.amount < 10 }
     }
+    
+    func syncProduct() {
+        LocalDatabase.shared.syncWithFirebase(ofType: Product.self, collection: "Product")
+    }
 }

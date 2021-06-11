@@ -18,9 +18,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var groceriesCollectionView: UICollectionView!
     @IBOutlet weak var contentScrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var logoImageView: UIImageView!
-    @IBOutlet weak var locationButton: UIButton!
-    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var searchView: UIView!
+    @IBOutlet weak var voucherPageControl: CustomPageControl!
     
     //MARK: - Variables
     lazy var viewModel = HomeViewModel(delegate: self)
@@ -38,6 +37,8 @@ class HomeViewController: UIViewController {
     
     func setupView() {
         tabBarController?.tabBar.unselectedItemTintColor = .black
+        
+        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
 
         voucherCollectionView.delegate = self
         voucherCollectionView.dataSource = self
@@ -60,7 +61,9 @@ class HomeViewController: UIViewController {
         groceriesCollectionView.dataSource = self
         groceriesCollectionView.register(ProductCollectionViewCell.nib, forCellWithReuseIdentifier: ProductCollectionViewCell.identifier)
         
-        contentScrollView.delegate = self
+        let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.searchViewTapped))
+        searchView.addGestureRecognizer(gesture)
+
     }
     
     //MARK: - Action
@@ -87,12 +90,18 @@ class HomeViewController: UIViewController {
             navigationController?.pushViewController(vc, animated: true)
         }
     }
+    
+    
+    @objc func searchViewTapped(sender : UITapGestureRecognizer) {
+        tabBarController?.selectedIndex = 1
+    }
 }
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case voucherCollectionView:
+            voucherPageControl.numberOfPages = viewModel.vouchersList.count
             return viewModel.vouchersList.count
         case highlyRecommendedCollectionView:
             return viewModel.highlyRecommendedList.count
@@ -164,18 +173,13 @@ extension HomeViewController: UICollectionViewDelegate {
         } else {
             return
         }
-        
     }
-}
-
-extension HomeViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        let offset = scrollView.contentOffset.y
-        
-        // 40 is default height of logoImageView
-        if (40 - offset >= 0) {
-            logoImageView.heightAnchor.constraint(equalToConstant: (40 - offset)).isActive = true
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if collectionView == voucherCollectionView {
+            voucherPageControl.currentPage = indexPath.row
         }
     }
 }

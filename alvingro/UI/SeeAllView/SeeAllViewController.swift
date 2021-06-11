@@ -23,7 +23,7 @@ class SeeAllViewController: UIViewController {
     
     func setupView() {
         navigationController?.setNavigationBarHidden(false, animated: true)
-        
+        self.navigationItem.backBarButtonItem?.title = ""
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Filter"), style: .plain, target: self, action: #selector(filterButtonTapped))
         
         productsCollectionView.delegate = self
@@ -37,7 +37,9 @@ class SeeAllViewController: UIViewController {
     }
     
     @objc func filterButtonTapped (sender:UIButton) {
-        print("Filter tapped")
+        let alert = UIAlertController(title: "Unsupported feature", message: "This feature is not available at the moment, please wait for the next version.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 
 }

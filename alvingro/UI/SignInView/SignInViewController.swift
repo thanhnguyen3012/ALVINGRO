@@ -27,6 +27,8 @@ class SignInViewController: UIViewController {
     }
     
     func setupView() {
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "BlurBackground") ?? UIImage())
+        
         emailTextField.underlined()
         
         passwordTextField.underlined()

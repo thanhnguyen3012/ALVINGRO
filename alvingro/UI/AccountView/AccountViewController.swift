@@ -30,6 +30,7 @@ class AccountViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.checkCurrentAccount()
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     func setupView() {
@@ -97,6 +98,7 @@ extension AccountViewController: AccountViewModelEvents {
         nameLabel.text = "Unknown"
         emailLabel.text = "Login to continue."
         changeStateOfLogoutButton(isLogoutButton: false)
+        
         
         let alert = UIAlertController(title: "No logged in", message: "Do you want to log in?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))

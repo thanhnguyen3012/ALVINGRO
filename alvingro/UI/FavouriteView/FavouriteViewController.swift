@@ -24,10 +24,13 @@ class FavouriteViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        tabBarController?.navigationItem.title = "Favourite"
         viewModel.reloadData()
     }
     
     func setupView() {
+        
         addAllToCartButton.mainButton()
         
         tableView.delegate = self
@@ -36,7 +39,12 @@ class FavouriteViewController: UIViewController {
         tableView.tableFooterView = UIView()
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 25)
     }
-
+    
+    //MARK: - Actions
+    @IBAction func addToCartButtonTapped(_ sender: Any) {
+        viewModel.addAllToCart()
+    }
+    
 }
 
 extension FavouriteViewController: UITableViewDelegate, UITableViewDataSource {
@@ -84,6 +92,12 @@ extension FavouriteViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension FavouriteViewController: FavouriteViewModelEvents {
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
     func dataLoaded() {
         tableView.reloadData()
     }

@@ -25,14 +25,13 @@ class ExploreViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        tabBarController?.navigationItem.title = "Find Products"
         searchBar.text = ""
         showCategoriesCollectionVew()
     }
     
     func setupView() {
-        navigationController?.setNavigationBarHidden(false, animated: true)
-        title = "Find Products"
         
         categoriesCollectionView.delegate = self
         categoriesCollectionView.dataSource = self
@@ -131,11 +130,13 @@ extension ExploreViewController: UICollectionViewDelegateFlowLayout {
 
 extension ExploreViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
         showSearchResultCollectionView()
         viewModel.searchProducts(key: searchBar.text ?? "")
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
         showCategoriesCollectionVew()
         searchBar.endEditing(true)
         viewModel.cancelSearchMode()

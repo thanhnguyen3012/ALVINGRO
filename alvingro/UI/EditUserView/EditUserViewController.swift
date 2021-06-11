@@ -26,6 +26,10 @@ class EditUserViewController: UIViewController {
     }
     
     func setupView() {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        title = "Edit your profile"
+        
         photoImageView.layer.cornerRadius = ((photoImageView.frame.width - 10) / 2)
         photoImageView.image = viewModel.getCurrentImage()
         

@@ -46,10 +46,10 @@ class AccountViewModel {
     }
     
     func checkCurrentAccount() {
-        if Auth.auth().currentUser == nil {
-            delegate?.noLoggedIn()
-        } else {
+        if (Auth.auth().currentUser != nil) && (LocalDatabase.shared.isExist(key: "id", value: Auth.auth().currentUser?.uid ?? "", ofType: User.self)) {
             delegate?.updateUserInfo(image: User.current.photo, name: User.current.name ?? "Unknown", email: User.current.email ?? "")
+        } else {
+            delegate?.noLoggedIn()
         }
     }
     

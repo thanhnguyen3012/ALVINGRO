@@ -8,6 +8,7 @@
 import Foundation
 import Firebase
 import RealmSwift
+import FirebaseFirestore
 
 /// Every Cart instance storages info of 1 product in basket store of an User (with idUser)
 class Cart: Object, Codable {
