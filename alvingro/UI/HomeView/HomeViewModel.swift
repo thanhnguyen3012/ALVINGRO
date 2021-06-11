@@ -35,10 +35,6 @@ class HomeViewModel {
         delegate?.loadedProducts()
     }
     
-    func getCurrentPosition() -> String {
-        return "Your position"
-    }
-    
     func getPosition() -> String {
         return ""
     }
@@ -53,5 +49,9 @@ class HomeViewModel {
     
     func syncProduct() {
         LocalDatabase.shared.syncWithFirebase(ofType: Product.self, collection: "Product")
+    }
+    
+    func downloadDataFromFirebase() {
+        LocalDatabase.shared.downloadAllFromFirebase()
     }
 }

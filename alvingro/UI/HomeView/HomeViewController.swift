@@ -23,6 +23,7 @@ class HomeViewController: UIViewController {
     
     //MARK: - Variables
     lazy var viewModel = HomeViewModel(delegate: self)
+    var refreshControl = UIRefreshControl()
     
     //MARK: - Functions
     override func viewDidLoad() {
@@ -64,6 +65,16 @@ class HomeViewController: UIViewController {
         let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.searchViewTapped))
         searchView.addGestureRecognizer(gesture)
 
+        refreshControl.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
+        contentScrollView.insertSubview(refreshControl, at: 0)
+    }
+    
+    
+    //Download data from firebase
+    func runRefresh(after wait: TimeInterval, closure: @escaping () -> Void) {
+        self.viewModel.downloadDataFromFirebase()
+        let queue = DispatchQueue.main
+        queue.asyncAfter(deadline: DispatchTime.now() + wait, execute: closure)
     }
     
     //MARK: - Action
@@ -94,6 +105,14 @@ class HomeViewController: UIViewController {
     
     @objc func searchViewTapped(sender : UITapGestureRecognizer) {
         tabBarController?.selectedIndex = 1
+    }
+    
+    //Action refresh of scroll view
+    @objc func onRefresh() {
+        runRefresh(after: 5) {
+            self.viewModel.getAllProductFromDevice()
+            self.refreshControl.endRefreshing()
+        }
     }
 }
 

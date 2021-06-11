@@ -98,7 +98,7 @@ extension AccountViewController: AccountViewModelEvents {
         nameLabel.text = "Unknown"
         emailLabel.text = "Login to continue."
         changeStateOfLogoutButton(isLogoutButton: false)
-        
+        editButton.isEnabled = false
         
         let alert = UIAlertController(title: "No logged in", message: "Do you want to log in?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -114,6 +114,7 @@ extension AccountViewController: AccountViewModelEvents {
         nameLabel.text = name
         emailLabel.text = email
         changeStateOfLogoutButton(isLogoutButton: true)
+        editButton.isEnabled = true
     }
     
     func showLoginView() {

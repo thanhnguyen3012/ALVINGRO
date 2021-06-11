@@ -15,75 +15,7 @@ class LocalDatabase {
     
     private let db = try! Realm()
     
-    private init() {
-//        let fb = Firestore.firestore()
-//
-//        //Get products from firebase
-//        fb.collection("Product").getDocuments() { [weak self] (querySnapshot, err) in
-//            guard let self = self else { return }
-//            if let err = err {
-//                print("Error getting documents: \(err)")
-//            } else {
-//                if let list:[Product] = try? querySnapshot?.toObject() {
-//                    self.removeObjects(ofType: Product.self)
-//                    self.set(list: list)
-//                }
-//            }
-//        }
-//
-//        //Get orders from firebase
-//        fb.collection("Order").getDocuments() { [weak self] (querySnapshot, err) in
-//            guard let self = self else { return }
-//            if let err = err {
-//                print("Error getting documents: \(err)")
-//            } else {
-//                if let list:[Order] = try? querySnapshot?.toObject() {
-//                    self.removeObjects(ofType: Order.self)
-//                    self.set(list: list)
-//                }
-//            }
-//        }
-//
-//        //Get vouchers from firebase
-//        fb.collection("Voucher").getDocuments() { [weak self] (querySnapshot, err) in
-//            guard let self = self else { return }
-//            if let err = err {
-//                print("Error getting documents: \(err)")
-//            } else {
-//                if let list:[Voucher] = try? querySnapshot?.toObject() {
-//                    self.removeObjects(ofType: Voucher.self)
-//                    self.set(list: list)
-//                }
-//            }
-//        }
-//
-//
-//        //Get categories from firebase
-//        fb.collection("Category").getDocuments() { [weak self] (querySnapshot, err) in
-//            guard let self = self else { return }
-//            if let err = err {
-//                print("Error getting documents: \(err)")
-//            } else {
-//                if let list:[Category] = try? querySnapshot?.toObject() {
-//                    self.removeObjects(ofType: Category.self)
-//                    self.set(list: list)
-//                }
-//            }
-//        }
-//
-//        //Get brands from firebase
-//        fb.collection("Brand").getDocuments() { [weak self] (querySnapshot, err) in
-//            guard let self = self else { return }
-//            if let err = err {
-//                print("Error getting documents: \(err)")
-//            } else {
-//                if let list:[Brand] = try? querySnapshot?.toObject() {
-//                    self.removeObjects(ofType: Brand.self)
-//                    self.set(list: list)
-//                }
-//            }
-//        }
-    }
+    private init() {}
     
     func getAll<T: Object>(targetType: T.Type) -> [T] {
         try! db.write {
@@ -250,6 +182,76 @@ class LocalDatabase {
             }
         } catch let error {
             print("Log in error: \(error)")
+        }
+    }
+    
+    func downloadAllFromFirebase() {
+        let fb = Firestore.firestore()
+
+        //Get products from firebase
+        fb.collection("Product").getDocuments() { [weak self] (querySnapshot, err) in
+            guard let self = self else { return }
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                if let list:[Product] = try? querySnapshot?.toObject() {
+                    self.removeObjects(ofType: Product.self)
+                    self.set(list: list)
+                }
+            }
+        }
+
+        //Get orders from firebase
+        fb.collection("Order").getDocuments() { [weak self] (querySnapshot, err) in
+            guard let self = self else { return }
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                if let list:[Order] = try? querySnapshot?.toObject() {
+                    self.removeObjects(ofType: Order.self)
+                    self.set(list: list)
+                }
+            }
+        }
+
+        //Get vouchers from firebase
+        fb.collection("Voucher").getDocuments() { [weak self] (querySnapshot, err) in
+            guard let self = self else { return }
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                if let list:[Voucher] = try? querySnapshot?.toObject() {
+                    self.removeObjects(ofType: Voucher.self)
+                    self.set(list: list)
+                }
+            }
+        }
+
+
+        //Get categories from firebase
+        fb.collection("Category").getDocuments() { [weak self] (querySnapshot, err) in
+            guard let self = self else { return }
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                if let list:[Category] = try? querySnapshot?.toObject() {
+                    self.removeObjects(ofType: Category.self)
+                    self.set(list: list)
+                }
+            }
+        }
+
+        //Get brands from firebase
+        fb.collection("Brand").getDocuments() { [weak self] (querySnapshot, err) in
+            guard let self = self else { return }
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                if let list:[Brand] = try? querySnapshot?.toObject() {
+                    self.removeObjects(ofType: Brand.self)
+                    self.set(list: list)
+                }
+            }
         }
     }
 }
