@@ -17,10 +17,20 @@ class CartViewController: UIViewController {
     //MARK: - Variables
     lazy var viewModel = CartViewModel(delegate: self)
     
-    //MARK: Functions
+    //MARK: - Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        tabBarController?.navigationItem.title = "My Cart"
+        viewModel.getCartFromDevice()
+    }
+    
+    func setupView() {
         cartTableView.delegate = self
         cartTableView.dataSource = self
         cartTableView.register(CartTableViewCell.nib, forCellReuseIdentifier: CartTableViewCell.identifier)
@@ -29,12 +39,11 @@ class CartViewController: UIViewController {
         
         checkoutButton.mainButton()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        viewModel.getCartFromDevice()
-    }
 
+    //MARK: - Actions
+    @IBAction func checkOutButtonTapped(_ sender: Any) {
+        viewModel.checkout()
+    }
 }
 
 extension CartViewController: UITableViewDelegate, UITableViewDataSource {
@@ -56,7 +65,11 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Show DetailsView
+        if #available(iOS 13.0, *) {
+            guard let vc = storyboard?.instantiateViewController(identifier: DetailsViewController.identifier) as? DetailsViewController else { return }
+            vc.initValue(product: viewModel.productsList[indexPath.row])
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -74,16 +87,34 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension CartViewController: CartViewModelEvents {
+    func showCheckOutView(order: Order) {
+        let checkoutView = CheckoutViewController(nibName: "CheckoutViewController", bundle: nil)
+        checkoutView.initValue(order: order)
+        checkoutView.delegate = self
+        present(checkoutView, animated: true, completion: nil)
+    }
+    
+    func checkOutUnsuccess(reason: String) {
+        let alert = UIAlertController(title: "Checkout Unsucess", message: reason, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
     
     func updateCart(totalPrice: Float) {
         cartTableView.reloadData()
         totalPriceLabel.text = "$\(totalPrice)"
     }
     
-    
     func updateCartAt(index: Int) {
         cartTableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
         totalPriceLabel.text = "$\(viewModel.reloadTotalPrice())"
+    }
+    
+    func loginRequire() {
+        let alert = UIAlertController(title: "Checkout fail", message: "Please log in to continue.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 }
 
@@ -92,4 +123,19 @@ extension CartViewController: CartTableViewCellDelegate {
         guard let index = cartTableView.indexPath(for: cartTableViewCell)?.row else { return }
         viewModel.changeAmount(at: index, offsetValue: updateAmount)
     }
+}
+
+extension CartViewController: CheckoutViewControllerDelegate {
+    func checkoutSuccess(order: Order) {
+        print("SUCCESS")
+        let vc = OrderAcceptedViewController(nibName: "OrderAcceptedViewController", bundle: nil)
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
+    }
+    
+    func checkoutFail(reason: String) {
+        print("FAIL")
+    }
+    
+    
 }

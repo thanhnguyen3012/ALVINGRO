@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 import RealmSwift
-import Realm
+import FirebaseFirestore
 
 class ViewController: UIViewController {
 
@@ -151,5 +151,23 @@ class ViewController: UIViewController {
             }
         }
         print("Realm have been written.")
+    }
+    
+    @IBAction func updateDataToFirebase(_ sender: Any) {
+//        for product in listProducts {
+//            LocalDatabase.shared.upAnObjectToFirebase(product, collection: "Product", id: product.id)
+//        }
+//
+//        for voucher in listVouchers {
+//            LocalDatabase.shared.upAnObjectToFirebase(voucher, collection: "Voucher", id: voucher.id)
+//        }
+//
+        for brand in listBrands {
+            LocalDatabase.shared.upAnObjectToFirebase(brand, collection: "Brand", id: brand.id)
+        }
+        
+        for cat in listCategories {
+            LocalDatabase.shared.upAnObjectToFirebase(cat, collection: "Category", id: cat.id)
+        }
     }
 }

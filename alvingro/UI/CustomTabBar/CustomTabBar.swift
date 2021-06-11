@@ -21,7 +21,6 @@ import UIKit
         let shapeLayer = CAShapeLayer()
 
         shapeLayer.path = createPath()
-//        shapeLayer.strokeColor = UIColor.gray.withAlphaComponent(0.1).cgColor
         shapeLayer.fillColor = color?.cgColor ?? UIColor.white.cgColor
         shapeLayer.lineWidth = 2
         shapeLayer.shadowColor = UIColor.black.cgColor

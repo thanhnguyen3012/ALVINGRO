@@ -10,6 +10,7 @@ import UIKit
 protocol FavouriteViewModelEvents: AnyObject {
     func dataLoaded()
     func showDetailsView(vc: DetailsViewController)
+    func showAlert(title: String, message: String)
 }
 
 class FavouriteViewModel {
@@ -49,5 +50,15 @@ class FavouriteViewModel {
         guard let vc = storyboard.instantiateViewController(identifier: DetailsViewController.identifier) as? DetailsViewController else { return }
         vc.initValue(product: productsList[index])
         delegate?.showDetailsView(vc: vc)
+    }
+    
+    func addAllToCart() {
+        for product in productsList {
+            LocalDatabase.shared.updateAmountCart(idProduct: product.id ?? "", amountOffset: 1)
+        }
+        LocalDatabase.shared.removeObjects(ofType: LikedProduct.self)
+        productsList.removeAll()
+        delegate?.dataLoaded()
+        delegate?.showAlert(title: "Add all to cart", message: "All of your liked products are added to cart")
     }
 }

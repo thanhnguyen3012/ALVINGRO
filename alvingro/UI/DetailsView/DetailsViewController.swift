@@ -25,6 +25,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var expandReviewButton: UIButton!
     @IBOutlet var ratingStarsArrayImageView: [UIImageView]!
     @IBOutlet weak var addToBasketButton: UIButton!
+    @IBOutlet weak var photosPageControl: UIPageControl!
     
     // MARK: - Variables
     lazy var viewModel = DetailsViewModel(delegate: self)
@@ -37,6 +38,13 @@ class DetailsViewController: UIViewController {
     
     func setupView() {
         navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        if #available(iOS 13.0, *) {
+            let navigationBarAppearence = UINavigationBarAppearance()
+            navigationBarAppearence.shadowColor = .clear
+            navigationController?.navigationBar.scrollEdgeAppearance = navigationBarAppearence
+        }
+        navigationItem.backButtonTitle = ""
         
         photosCollectionView.delegate = self
         photosCollectionView.dataSource = self
@@ -121,11 +129,6 @@ class DetailsViewController: UIViewController {
     @IBAction func expandDetailsButtonTapped(_ sender: Any) {
         expandDetailsButton.isSelected = !expandDetailsButton.isSelected
         detailsTextView.isHidden = !expandDetailsButton.isSelected
-//        UIView.animate(withDuration: 1.5, delay: 0, options: expandDetailsButton.isSelected ? .curveEaseIn : .curveEaseOut, animations: {
-////            self.detailsTextView.frame.size.height = 0
-//        }, completion: { _ in
-//            self.detailsTextView.isHidden = !self.expandDetailsButton.isSelected
-//        })
     }
     
     @IBAction func expandNutritionButtonTapped(_ sender: Any) {
@@ -140,6 +143,7 @@ class DetailsViewController: UIViewController {
  
 extension DetailsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        photosPageControl.numberOfPages = viewModel.product.photos.count
         return viewModel.product.photos.count
     }
     
@@ -153,6 +157,10 @@ extension DetailsViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        photosPageControl.currentPage = indexPath.row
     }
 }
 
