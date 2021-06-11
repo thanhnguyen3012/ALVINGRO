@@ -35,7 +35,7 @@ class SignInViewModel {
     }
     
     func checkCurrentAccount() {
-        if  Auth.auth().currentUser != nil {
+        if  ((Auth.auth().currentUser != nil) && ((LocalDatabase.shared.getAnObject(key: "id", value: Auth.auth().currentUser?.uid ?? "" , ofType: User.self)) != nil)) {
             delegate?.signInSuccess()
         }
     }
